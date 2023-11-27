@@ -1,6 +1,6 @@
 ## **`Information for the Final Project Repository`**
 
-### **_`Sistem Laporan Pengaduan Masyarakat`_**
+### **_`Sistem Laporan Pengaduan Masyarakat (LaporYuk)`_**
 
 ---
 
