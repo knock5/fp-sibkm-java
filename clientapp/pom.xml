@@ -8,7 +8,7 @@
 		<version>3.1.6</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>id.laporyuk</groupId>
+	<groupId>id.co.mii</groupId>
 	<artifactId>clientapp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>clientapp</name>

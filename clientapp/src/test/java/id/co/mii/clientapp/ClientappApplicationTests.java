@@ -1,10 +1,10 @@
-package id.laporyuk.serverapp;
+package id.co.mii.clientapp;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ServerappApplicationTests {
+class ClientappApplicationTests {
 
 	@Test
 	void contextLoads() {
