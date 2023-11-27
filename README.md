@@ -1,15 +1,15 @@
 ## **`Information for the Final Project Repository`**
 
-### **_`Title: ???`_**
+### **_`Sistem Laporan Pengaduan Masyarakat`_**
 
 ---
 
 ### **`Kelompok 02:`**
 
-- **Name**
-- **Name**
-- **Name**
-- **Name**
+- **Moch. Miftachul Huda**
+- **Indri Melani Putri**
+- **Deni Chandra**
+- **Ainul Irsyad Dul Ma'arif**
 
 ---
 
@@ -23,11 +23,9 @@
 
 ### **`Design & Documentation:`**
 
-_(silahkan edit sesuai kebutuhan, ex:)_
-
-- [Slide of Presentation](#)
-- [BPMN, Use Case, ERD](#)
-- [Data Dummy](#)
+- [Slide of Presentation](https://docs.google.com/presentation/d/1mHSf4ihPYSBI3npNtmVJWzpydhJ6pB3xTbUSl_noV40/edit?usp=sharing)
+- [BPMN, Use Case, ERD](https://drive.google.com/drive/folders/1ip1z9wYQdXvnBq8OWLqob-tUQkr3y1dA?usp=sharing)
+- [Data Dummy](https://docs.google.com/spreadsheets/d/1ui3moLpR7iViF3f32MAUWd653qhRbPlG/edit?usp=sharing&ouid=107494131035951904511&rtpof=true&sd=true)
 - [Progress of Project](#)
 
 ---
