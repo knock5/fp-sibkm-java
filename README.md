@@ -34,13 +34,13 @@
 
 ### **`Prioritas Tugas:`**
 
-- (silahkan edit sesuai kebutuhan atau bisa dilink pada `Progress of Project` - ke **spreadsheet**)
+- Link: [Prioritas Tugas](https://docs.google.com/spreadsheets/d/1aW10-l4SJkvtxRTiukbYNM044QNGpNCzypZGagpn1n0/edit#gid=1528669720)
 
 ---
 
 ### **`Pembagian Tugas:`**
 
-- (silahkan edit sesuai kebutuhan atau bisa dilink pada `Progress of Project` - ke **spreadsheet**)
+- Link: [PoP](https://docs.google.com/spreadsheets/d/1aW10-l4SJkvtxRTiukbYNM044QNGpNCzypZGagpn1n0/edit?usp=sharing)
 
 ---
 
