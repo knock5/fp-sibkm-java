@@ -28,7 +28,7 @@
 - [Slide of Presentation](https://docs.google.com/presentation/d/1mHSf4ihPYSBI3npNtmVJWzpydhJ6pB3xTbUSl_noV40/edit?usp=sharing)
 - [BPMN, Use Case, ERD](https://drive.google.com/file/d/1zlFzKW7UZXaCPNnBs78A0s2w7OpslbMZ/view?usp=sharing)
 - [Data Dummy](https://docs.google.com/spreadsheets/d/1ui3moLpR7iViF3f32MAUWd653qhRbPlG/edit?usp=sharing&ouid=107494131035951904511&rtpof=true&sd=true)
-- [Progress of Project](#)
+- [Progress of Project](https://docs.google.com/spreadsheets/d/1aW10-l4SJkvtxRTiukbYNM044QNGpNCzypZGagpn1n0/edit?usp=sharing)
 
 ---
 
