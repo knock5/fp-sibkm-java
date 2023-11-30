@@ -34,11 +34,4 @@ public class FollowUp {
   @Column(name = "follow_up_notes", length = 150, nullable = false)
   private String followUpNotes;
 
-  @OneToOne
-  @JoinColumn(name = "complaint_id")
-  private Complaint complaint;
-
-  @ManyToOne
-  @JoinColumn(name = "officer_id")
-  private User user;
 }
