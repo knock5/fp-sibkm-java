@@ -8,36 +8,34 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-public class Status {
+@Table(name = "tb_role")
+public class Role {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name = "status_id")
+  @Column(name = "role_id")
   private Integer id;
 
-  @Column(name = "status_name", length = 20, nullable = false)
+  @Column(name = "role_name", nullable = false, unique = true, length = 20)
   private String name;
 
-  @OneToMany(
-    mappedBy = "status",
-    cascade = CascadeType.ALL,
-    fetch = FetchType.LAZY
+  @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+  @JoinTable(
+    name = "tb_role_privilege",
+    joinColumns = @JoinColumn(name = "role_id"),
+    inverseJoinColumns = @JoinColumn(name = "privilege_id")
   )
-  private List<Complaint> complaints;
-
-  @OneToMany(
-    mappedBy = "status",
-    cascade = CascadeType.ALL,
-    fetch = FetchType.LAZY
-  )
-  private List<History> histories;
+  private List<Privilege> privileges;
 }
