@@ -7,12 +7,12 @@
   </head>
   <body>
     <nav
-      class="navbar navbar-expand-md bg-body-tertiary"
+      class="navbar navbar-expand-md px-3 py-3"
       id="headnav"
       th:fragment="navbar"
     >
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand text-white" href="#">Navbar</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -27,21 +27,53 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#"
+              <a
+                class="nav-link"
+                th:classappend="${isActive == 'home' ? 'active' : ''}"
+                aria-current="page"
+                th:href="@{/home}"
                 >Beranda</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Dashboard</a>
+              <a
+                class="nav-link"
+                th:classappend="${isActive == 'a-dashboard' ? 'active' : ''}"
+                th:href="@{/a-dashboard}"
+                >Dashboard(Admin)</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Pengaduan</a>
+              <a
+                class="nav-link"
+                th:classappend="${isActive == 'u-dashboard' ? 'active' : ''}"
+                th:href="@{/u-dashboard}"
+                >Dashboard(User)</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Kategori Pengaduan</a>
+              <a
+                class="nav-link"
+                th:classappend="${isActive == 'o-dashboard' ? 'active' : ''}"
+                th:href="@{/o-dashboard}"
+                >Dashboard(Officer)</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Tentang Kami</a>
+              <a
+                class="nav-link"
+                th:classappend="${isActive == 'h-kategori' ? 'active' : ''}"
+                th:href="@{/h-kategori}"
+                >Kategori Pengaduan</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                th:classappend="${isActive == 'h-tentang' ? 'active' : ''}"
+                th:href="@{/h-tentang}"
+                >Tentang Kami</a
+              >
             </li>
           </ul>
           <div class="wrap-acc">

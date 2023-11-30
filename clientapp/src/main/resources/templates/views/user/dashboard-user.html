@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layouts/main.html}"
+>
+  <head>
+    <title>LaporYuk - Home</title>
+  </head>
+  <body>
+    <!-- content -->
+    <section class="container-fluid p-3 wrapper" layout:fragment="content">
+      <div class="container">
+        <h1>Hi, User!</h1>
+        <p>
+          Anda memiliki kendali penuh atas partisipasi Anda dalam membangun desa
+          kita bersama-sama. Lihat ringkasan pengaduan, pantau statusnya, dan
+          berinteraksi dengan komunitas. Ini adalah tempat di mana suara Anda
+          menjadi nyata.
+        </p>
+
+        <div class="wrap-tombol-user d-flex gap-3 justify-content-center p-4">
+          <a href="#" class="btn btn-primary">Lihat Pengaduan</a>
+          <a href="#" class="btn btn-primary">Tambah Pengaduan</a>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
