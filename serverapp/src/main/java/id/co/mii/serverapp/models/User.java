@@ -5,7 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,17 +13,16 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "TB_TEST")
-public class Test {
+public class User {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name = "test_id")
   private Integer id;
 
-  @Column(name = "test_name", nullable = false, length = 50)
-  private String name;
+  @Column(unique = true)
+  private String username;
 
-  @Column(name = "test_status", nullable = false, length = 50)
-  private String status;
+  private String password;
+  private String email;
+  private String role;
 }
