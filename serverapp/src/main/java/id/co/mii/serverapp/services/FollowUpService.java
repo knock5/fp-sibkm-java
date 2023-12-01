@@ -23,7 +23,6 @@
 //         return followUpRepository.findAll();
 //     }
 
-
 //     public FollowUp createDTO(FollowUpRequest followUpRequest){
 //         FollowUp followUp = modelMapper.map(followUpRequest, FollowUp.class);
 //         // followUp.setStatus(statusService.getById(followUpRequest.getStatusId()));

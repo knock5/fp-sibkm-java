@@ -1,5 +1,6 @@
 package id.co.mii.serverapp.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,7 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,36 +22,36 @@ import lombok.NoArgsConstructor;
 @Table(name = "tb_people")
 public class People {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "people_id", length = 30)
-    private Integer id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "people_id", length = 30)
+  private Integer id;
 
-    @Column(nullable = false, unique = true, length = 20)
-    private Integer nik;
+  @Column(nullable = false, unique = true, length = 100)
+  private Integer nik;
 
-    @Column(nullable = false, length = 30)
-    private String name;
+  @Column(nullable = false, length = 30)
+  private String name;
 
-    @Column(nullable = false, length = 20)
-    private String email;
+  @Column(nullable = false, length = 20)
+  private String email;
 
-    @Column(nullable = false, length = 30)
-    private String address;
+  @Column(nullable = false, length = 30)
+  private String address;
 
-    @Column(nullable = false, unique = true, length = 12)
-    private String phone;
+  @Column(nullable = false, unique = true, length = 12)
+  private String phone;
 
-    @Column(length = 20)
-    private String job;
+  @Column(length = 20)
+  private String job;
 
-    @Column(length = 255)
-    private String profile_picture;
+  @Column(length = 255)
+  private String profile_picture;
 
-    @OneToMany(mappedBy = "people")
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    private List<Complaint> complaint;
+  @OneToMany(mappedBy = "people")
+  @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+  private List<Complaint> complaint;
 
-    @OneToOne(mappedBy = "people", cascade = CascadeType.ALL)
-    private User user;
+  @OneToOne(mappedBy = "people", cascade = CascadeType.ALL)
+  private User user;
 }
