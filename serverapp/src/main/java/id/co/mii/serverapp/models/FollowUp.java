@@ -40,11 +40,4 @@ public class FollowUp {
   @ManyToOne
   @JoinColumn(name = "officer_id")
   private User user;
-
-  @ManyToOne
-  @JoinColumn(name = "status_id")
-  private Status status;
-
-  public void setCategory(Category byId) {
-  }
 }

@@ -35,8 +35,4 @@ public class Status {
   @OneToMany(mappedBy = "status")
   @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
   private List<History> histories;
-
-  @OneToMany(mappedBy = "status")
-  @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-  private List<FollowUp> followups;
 }

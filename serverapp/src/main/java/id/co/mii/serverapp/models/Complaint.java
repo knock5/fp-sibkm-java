@@ -1,8 +1,8 @@
 package id.co.mii.serverapp.models;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.sql.Date;
-import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -57,7 +57,8 @@ public class Complaint {
   private Status status;
 
   @OneToMany(mappedBy = "complaint", cascade = CascadeType.ALL)
-  private List<FollowUp> followUps = new ArrayList<>();
+  @JsonIgnore
+  private List<FollowUp> followUps;
 
   @OneToMany(
     mappedBy = "complaint",

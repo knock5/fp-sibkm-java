@@ -1,7 +1,5 @@
 package id.co.mii.serverapp.models;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,10 +23,6 @@ public class History {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "history_id", length = 30)
   private Integer id;
-
-  @Column(name = "history_date", nullable = false)
-  @JsonFormat(pattern = "yyyy-MM-dd")
-  private Date historyDate;
 
   @Column(length = 100)
   private String notes;
