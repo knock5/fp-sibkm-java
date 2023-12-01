@@ -28,7 +28,7 @@ public class People {
   private Integer id;
 
   @Column(nullable = false, unique = true, length = 100)
-  private Integer nik;
+  private Long nik;
 
   @Column(nullable = false, length = 30)
   private String name;
