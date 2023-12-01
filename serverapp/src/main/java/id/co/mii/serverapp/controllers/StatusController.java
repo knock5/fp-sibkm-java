@@ -1,7 +1,7 @@
 package id.co.mii.serverapp.controllers;
 
-import id.co.mii.serverapp.models.Category;
-import id.co.mii.serverapp.services.CategoryService;
+import id.co.mii.serverapp.models.Status;
+import id.co.mii.serverapp.services.StatusService;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -15,36 +15,33 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/category")
-public class CategoryController {
+@RequestMapping("/status")
+public class StatusController {
 
-  private CategoryService categoryService;
+  private StatusService statusService;
 
   @GetMapping
-  public List<Category> getAll() {
-    return categoryService.getAll();
+  public List<Status> getAll() {
+    return statusService.getAll();
   }
 
   @GetMapping("/{id}")
-  public Category getById(@PathVariable Integer id) {
-    return categoryService.getById(id);
+  public Status getById(@PathVariable Integer id) {
+    return statusService.getById(id);
   }
 
   @PostMapping
-  public Category create(@RequestBody Category category) {
-    return categoryService.create(category);
+  public Status create(@RequestBody Status status) {
+    return statusService.create(status);
   }
 
   @PutMapping("/{id}")
-  public Category update(
-    @PathVariable Integer id,
-    @RequestBody Category category
-  ) {
-    return categoryService.update(id, category);
+  public Status update(@PathVariable Integer id, @RequestBody Status status) {
+    return statusService.update(id, status);
   }
 
   @DeleteMapping("/{id}")
-  public Category delete(@PathVariable Integer id) {
-    return categoryService.delete(id);
+  public Status delete(@PathVariable Integer id) {
+    return statusService.delete(id);
   }
 }
