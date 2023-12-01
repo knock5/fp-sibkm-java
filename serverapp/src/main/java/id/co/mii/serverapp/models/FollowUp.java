@@ -9,7 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -34,7 +33,7 @@ public class FollowUp {
   @Column(name = "follow_up_notes", length = 150, nullable = false)
   private String followUpNotes;
 
-  @OneToOne
+  @ManyToOne
   @JoinColumn(name = "complaint_id")
   private Complaint complaint;
 
@@ -45,4 +44,7 @@ public class FollowUp {
   @ManyToOne
   @JoinColumn(name = "status_id")
   private Status status;
+
+  public void setCategory(Category byId) {
+  }
 }
