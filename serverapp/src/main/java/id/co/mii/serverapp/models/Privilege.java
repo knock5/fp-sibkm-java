@@ -1,30 +1,35 @@
 package id.co.mii.serverapp.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "TB_TEST")
-public class Test {
+@Entity
+@Table(name = "tb_privilege")
+public class Privilege {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name = "test_id")
+  @Column(name = "privilege_id", length = 30)
   private Integer id;
 
-  @Column(name = "test_name", nullable = false, length = 50)
+  @Column(name = "privilege_name", length = 20, nullable = false)
   private String name;
 
-  @Column(name = "test_status", nullable = false, length = 50)
-  private String status;
+  @ManyToMany(mappedBy = "privileges")
+  @JsonProperty(access = Access.WRITE_ONLY)
+  private List<Role> roles;
 }
