@@ -44,3 +44,10 @@
   font-weight: bold;
   font-size: 1.2rem;
 }
+
+.wrap-category {
+  padding: 15px 0;
+}
+.accordion-button {
+  background-color: var(--second) !important;
+}

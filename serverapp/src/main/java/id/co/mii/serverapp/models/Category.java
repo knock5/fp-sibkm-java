@@ -25,10 +25,10 @@ public class Category {
   @Column(name = "category_id", length = 30)
   private Integer id;
 
-  @Column(name = "category_name", length = 20, unique = true, nullable = false)
+  @Column(name = "category_name", length = 50, unique = true, nullable = false)
   private String name;
 
-  @Column(nullable = false, length = 255)
+  @Column(nullable = false, columnDefinition = "TEXT")
   private String description;
 
   @OneToMany(mappedBy = "category")
