@@ -15,9 +15,12 @@
 
 .wrap-body {
   font-family: "Roboto", sans-serif;
-  background: linear-gradient(180deg, var(--white) 55%, var(--second) 150%);
+  background: linear-gradient(180deg, var(--white) 25%, var(--second) 150%);
   color: var(--black);
   min-height: 100vh;
+  padding-bottom: 430px;
+  position: relative;
+  overflow-x: hidden;
 }
 
 .navbar {
@@ -50,4 +53,16 @@
 }
 .accordion-button {
   background-color: var(--second) !important;
+}
+
+.footBar {
+  background-color: var(--black);
+  color: var(--white);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+.footer-link,
+.footer-tag {
+  color: var(--second);
 }
