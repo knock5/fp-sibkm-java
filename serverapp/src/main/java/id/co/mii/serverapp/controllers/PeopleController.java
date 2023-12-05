@@ -38,4 +38,12 @@ public class PeopleController {
   public People update(@PathVariable Integer id, @RequestBody People People) {
     return peopleService.update(id, People);
   }
+
+  // get people by role name
+  @GetMapping("/by-role/{roleName}")
+  public List<People> getPeopleByRole(
+    @PathVariable("roleName") String roleName
+  ) {
+    return peopleService.getPeopleByRole(roleName);
+  }
 }
