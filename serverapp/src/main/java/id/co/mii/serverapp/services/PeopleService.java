@@ -35,4 +35,9 @@ public class PeopleService {
     people.setId(id);
     return peopleRepository.save(people);
   }
+
+  // get people by role name
+  public List<People> getPeopleByRole(String roleName) {
+    return peopleRepository.findByRoleName(roleName);
+  }
 }

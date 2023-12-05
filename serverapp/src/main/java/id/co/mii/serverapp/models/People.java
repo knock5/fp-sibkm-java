@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -53,5 +54,6 @@ public class People {
   private List<Complaint> complaint;
 
   @OneToOne(mappedBy = "people", cascade = CascadeType.ALL)
+  @PrimaryKeyJoinColumn
   private User user;
 }

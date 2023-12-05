@@ -1,12 +1,12 @@
-package id.co.mii.serverapp.controllers;
+package id.co.mii.clientapp.controllers.rest;
 
-import id.co.mii.serverapp.models.People;
-import id.co.mii.serverapp.services.PeopleService;
+import id.co.mii.clientapp.models.People;
+import id.co.mii.clientapp.services.PeopleService;
 import java.util.List;
 import lombok.AllArgsConstructor;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/people")
-public class PeopleController {
+@RequestMapping("/api/people")
+public class RestPeopleController {
 
   private PeopleService peopleService;
 
@@ -24,26 +24,25 @@ public class PeopleController {
     return peopleService.getAll();
   }
 
-  @PostMapping
-  public People create(@RequestBody People People) {
-    return peopleService.create(People);
-  }
-
   @GetMapping("/{id}")
   public People getById(@PathVariable Integer id) {
     return peopleService.getById(id);
   }
 
   @PutMapping("/{id}")
-  public People update(@PathVariable Integer id, @RequestBody People People) {
-    return peopleService.update(id, People);
+  public People update(@PathVariable Integer id, @RequestBody People people) {
+    return peopleService.update(id, people);
   }
 
-  // get people by role name
+  @DeleteMapping("/{id}")
+  public People delete(@PathVariable Integer id) {
+    return peopleService.delete(id);
+  }
+
   @GetMapping("/by-role/{roleName}")
-  public List<People> getPeopleByRole(
+  public List<People> getPeopleByRoleName(
     @PathVariable("roleName") String roleName
   ) {
-    return peopleService.getPeopleByRole(roleName);
+    return peopleService.getPeopleByRoleName(roleName);
   }
 }
