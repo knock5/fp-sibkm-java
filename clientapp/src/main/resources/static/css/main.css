@@ -13,13 +13,21 @@
   --red: #e21818;
 }
 
-.wrap-body {
-  font-family: "Roboto", sans-serif;
-  background: linear-gradient(180deg, var(--white) 55%, var(--second) 150%);
-  color: var(--black);
-  min-height: 100vh;
+.hiding {
+  display: none;
 }
 
+.wrap-body {
+  font-family: "Roboto", sans-serif;
+  background: linear-gradient(180deg, var(--white) 25%, var(--second) 150%);
+  color: var(--black);
+  min-height: 100vh;
+  padding-bottom: 430px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* navbar */
 .navbar {
   background-color: var(--black);
 }
@@ -43,4 +51,38 @@
   color: var(--white) !important;
   font-weight: bold;
   font-size: 1.2rem;
+}
+
+/* dashboard admin */
+.menu-dash {
+  background-color: var(--black);
+  border-radius: 5px;
+}
+.dash-link {
+  text-decoration: none;
+  color: var(--white);
+}
+.dash-link:hover {
+  color: var(--second);
+}
+
+/* category */
+.wrap-category {
+  padding: 15px 0;
+}
+.accordion-button {
+  background-color: var(--second) !important;
+}
+
+/* footer */
+.footBar {
+  background-color: var(--black);
+  color: var(--white);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+.footer-link,
+.footer-tag {
+  color: var(--second);
 }

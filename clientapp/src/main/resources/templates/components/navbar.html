@@ -7,7 +7,7 @@
   </head>
   <body>
     <nav
-      class="navbar navbar-expand-md px-3 py-3"
+      class="navbar navbar-expand-lg px-3 py-3 sticky-top"
       id="headnav"
       th:fragment="navbar"
     >
@@ -39,7 +39,7 @@
               <a
                 class="nav-link"
                 th:classappend="${isActive == 'a-dashboard' ? 'active' : ''}"
-                th:href="@{/a-dashboard}"
+                th:href="@{/a-dashboard#user-list}"
                 >Dashboard(Admin)</a
               >
             </li>
