@@ -65,6 +65,22 @@
 .dash-link:hover {
   color: var(--second);
 }
+.dataTables_wrapper input {
+  width: 300px;
+  margin-bottom: 20px;
+}
+.dataTables_wrapper input[type="search"] {
+  background-color: var(--white);
+}
+.dataTables_wrapper input[type="search"]:focus {
+  background-color: var(--black);
+  color: var(--second);
+}
+@media screen and (min-width: 1400px) {
+  .dataTables_scrollHead {
+    margin-left: 40px !important;
+  }
+}
 
 /* category */
 .wrap-category {
