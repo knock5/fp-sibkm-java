@@ -1,7 +1,6 @@
 package id.co.mii.clientapp.models;
 
 import java.util.List;
-import javax.management.relation.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
