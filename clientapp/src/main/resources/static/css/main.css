@@ -13,6 +13,10 @@
   --red: #e21818;
 }
 
+.hiding {
+  display: none;
+}
+
 .wrap-body {
   font-family: "Roboto", sans-serif;
   background: linear-gradient(180deg, var(--white) 25%, var(--second) 150%);
@@ -23,6 +27,7 @@
   overflow-x: hidden;
 }
 
+/* navbar */
 .navbar {
   background-color: var(--black);
 }
@@ -48,6 +53,20 @@
   font-size: 1.2rem;
 }
 
+/* dashboard admin */
+.menu-dash {
+  background-color: var(--black);
+  border-radius: 5px;
+}
+.dash-link {
+  text-decoration: none;
+  color: var(--white);
+}
+.dash-link:hover {
+  color: var(--second);
+}
+
+/* category */
 .wrap-category {
   padding: 15px 0;
 }
@@ -55,6 +74,7 @@
   background-color: var(--second) !important;
 }
 
+/* footer */
 .footBar {
   background-color: var(--black);
   color: var(--white);
