@@ -1,12 +1,9 @@
-console.log("category.js loaded");
-
 $(document).ready(function () {
   $.ajax({
     url: "api/category",
     method: "GET",
     dataType: "JSON",
     success: (res) => {
-      console.log(res);
       res.forEach((data) => {
         $("#accordionFlushExample").append(`
         <div class="accordion-item">
