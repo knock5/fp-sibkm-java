@@ -21,21 +21,51 @@
           </div>
           <div class="menu-dash d-flex flex-wrap gap-3 p-3 mb-3">
             <div>
-              <a href="#user" class="dash-link p-1 active">List Data Users</a>
+              <a href="#dashpeople" id="linkPeople" class="dash-link p-1 active"
+                >List Data Pengguna</a
+              >
             </div>
             <div>
-              <a href="#officer" class="dash-link p-1">List Data Petugas</a>
+              <a href="#dashrole" id="linkRole" class="dash-link p-1"
+                >List Data Role</a
+              >
             </div>
           </div>
         </div>
 
         <div class="dash-content my-4">
           <div id="user">
-            <h3>User</h3>
+            <table
+              id="tablePeople"
+              class="table table-bordered table-striped table-hover"
+            >
+              <thead>
+                <tr class="table-dark">
+                  <th class="col-1 text-center">No</th>
+                  <th class="col-2 text-center">Nama</th>
+                  <th class="col-2 text-center">Email</th>
+                  <th class="col-1 text-center">Pekerjaan</th>
+                  <th class="col-2 text-center">Alamat</th>
+                  <th class="col-1 text-center">Role</th>
+                  <th class="col-3 text-center">Action</th>
+                </tr>
+              </thead>
+            </table>
           </div>
 
-          <div class="hiding" id="officer">
-            <h3>Petugas</h3>
+          <div class="hiding" id="role">
+            <table
+              id="tableRole"
+              class="table table-bordered table-striped table-hover"
+            >
+              <thead>
+                <tr class="table-dark">
+                  <th class="col-1 text-center">No</th>
+                  <th class="col text-center">Nama Role</th>
+                  <th class="col text-center">Action</th>
+                </tr>
+              </thead>
+            </table>
           </div>
         </div>
       </div>
