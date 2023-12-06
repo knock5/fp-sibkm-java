@@ -76,11 +76,11 @@
   background-color: var(--black);
   color: var(--second);
 }
-@media screen and (min-width: 1400px) {
+/* @media screen and (min-width: 1400px) {
   .dataTables_scrollHead {
-    margin-left: 40px !important;
+    margin-left: 51px !important;
   }
-}
+} */
 
 /* category */
 .wrap-category {

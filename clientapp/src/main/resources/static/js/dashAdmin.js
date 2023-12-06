@@ -1,9 +1,8 @@
 const urlPeople = "/api/people";
 
 $(document).ready(function () {
-  // first render data user
-  const defaultRender = "user";
-  getDataPeople(defaultRender);
+  // first render data
+  getDataPeople();
 
   // set active menu dashboard
   $(".dash-link").on("click", function () {
@@ -12,26 +11,22 @@ $(document).ready(function () {
   });
 
   // render user div
-  $("#linkUser").on("click", function () {
-    $("#officer").hide();
+  $("#linkPeople").on("click", function () {
+    $("#role").hide();
     $("#user").show();
   });
 
   // render officer div
-  $("#linkOfficer").on("click", function () {
+  $("#linkRole").on("click", function () {
     $("#user").hide();
-    $("#officer").show();
-
-    const targetRender = $("#officer").attr("id");
-
-    getDataPeople(targetRender);
+    $("#role").show();
   });
 });
 
-const getDataPeople = (roleName) => {
-  $(`#table-${roleName}`).DataTable({
+const getDataPeople = () => {
+  $(`#tablePeople`).DataTable({
     ajax: {
-      url: `${urlPeople}/by-role/${roleName}`,
+      url: urlPeople,
       method: "GET",
       dataSrc: "",
     },
@@ -44,12 +39,21 @@ const getDataPeople = (roleName) => {
           return meta.row + 1;
         },
       },
-      { data: "nik", className: "text-capitalize" },
       { data: "name", className: "text-center" },
       { data: "email", className: "text-center" },
-      { data: "phone", className: "text-center" },
       { data: "job", className: "text-center" },
       { data: "address", className: "text-center" },
+      {
+        data: "user.roles",
+        className: "text-center",
+        render: function (data, type, row) {
+          let roles = "";
+          if (data.length > 0) {
+            roles += `<span class="badge bg-success">${data[0].name}</span>`;
+          }
+          return roles;
+        },
+      },
       {
         data: null,
         render: (data) => {
