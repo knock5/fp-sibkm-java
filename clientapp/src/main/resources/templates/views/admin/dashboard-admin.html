@@ -61,11 +61,83 @@
               <thead>
                 <tr class="table-dark">
                   <th class="col-1 text-center">No</th>
-                  <th class="col text-center">Nama Role</th>
-                  <th class="col text-center">Action</th>
+                  <th class="col-5 text-center">Nama Role</th>
+                  <th class="col-6 text-center">Action</th>
                 </tr>
               </thead>
             </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Detail People -->
+      <div
+        class="modal fade"
+        id="detailPeopleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                Detail Pengguna
+              </h1>
+            </div>
+            <div class="modal-body">
+              <div class="my-3">
+                <table class="table table-bordered table-warning">
+                  <tbody>
+                    <tr>
+                      <th class="col-4 table-info">ID Pengguna</th>
+                      <td class="col-8" id="userId"></td>
+                    </tr>
+                    <tr>
+                      <th class="col-4 table-info">NIK</th>
+                      <td class="col-8" id="userNik"></td>
+                    </tr>
+                    <tr>
+                      <th class="col-4 table-info">Nama Lengkap</th>
+                      <td class="col-8" id="userName"></td>
+                    </tr>
+                    <tr>
+                      <th class="col-4 table-info">Email</th>
+                      <td class="col-8" id="userEmail"></td>
+                    </tr>
+                    <tr>
+                      <th class="col-4 table-info">Telepon</th>
+                      <td class="col-8" id="userPhone"></td>
+                    </tr>
+                    <tr>
+                      <th class="col-4 table-info">Pekerjaan</th>
+                      <td class="col-8" id="userJob"></td>
+                    </tr>
+                    <tr>
+                      <th class="col-4 table-info">Alamat</th>
+                      <td class="col-8" id="userAddress"></td>
+                    </tr>
+                    <tr>
+                      <th class="col-4 table-info">Username Akun</th>
+                      <td class="col-8" id="usernameAcc"></td>
+                    </tr>
+                    <tr>
+                      <th class="col-4 table-info">Role</th>
+                      <td class="col-8" id="userRole"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
           </div>
         </div>
       </div>
