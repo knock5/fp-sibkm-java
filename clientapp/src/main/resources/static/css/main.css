@@ -102,3 +102,61 @@
 .footer-tag {
   color: var(--second);
 }
+
+/* custom card dashboard officer */
+.wrap-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.menu-card {
+  width: 200px;
+  height: 270px;
+  border-radius: 20px;
+  background: var(--white);
+  position: relative;
+  padding: 1.2rem;
+  border: 2px solid var(--prim);
+  transition: 0.5s ease-out;
+  overflow: visible;
+}
+.card-details {
+  color: var(--black);
+  height: 100%;
+  gap: 0.5em;
+  display: grid;
+  place-content: center;
+}
+.card-button {
+  transform: translate(-50%, 125%);
+  width: 60%;
+  border-radius: 1rem;
+  border: none;
+  background-color: var(--second);
+  color: var(--prim);
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  opacity: 0;
+  transition: 0.3s ease-out;
+}
+/*Text*/
+.text-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 20px;
+}
+/*Hover*/
+.menu-card:hover {
+  border-color: var(--second);
+  box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+.menu-card:hover .card-button {
+  transform: translate(-50%, 50%);
+  opacity: 1;
+}
