@@ -111,6 +111,9 @@
   flex-wrap: wrap;
   gap: 1.5rem;
 }
+.wrap-card > a {
+  text-decoration: none;
+}
 .menu-card {
   width: 200px;
   height: 270px;
