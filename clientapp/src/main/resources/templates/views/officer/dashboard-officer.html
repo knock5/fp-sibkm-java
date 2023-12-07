@@ -4,7 +4,7 @@
   layout:decorate="~{layouts/main.html}"
 >
   <head>
-    <title>LaporYuk - Home</title>
+    <title th:text="${title}"></title>
   </head>
   <body>
     <!-- content -->
@@ -24,7 +24,7 @@
 
       <div class="container">
         <div class="wrap-card p-2 mt-4">
-          <a th:href="@{/home}">
+          <a th:href="@{/data-pengaduan}">
             <div class="menu-card">
               <div class="card-details">
                 <span class="text-center">
@@ -47,7 +47,7 @@
                     />
                   </svg>
                 </span>
-                <p class="text-title text-center">Data Laporan</p>
+                <p class="text-title text-center">Data Pengaduan</p>
               </div>
               <button class="card-button">Pilih</button>
             </div>
@@ -81,7 +81,7 @@
               <button class="card-button">Pilih</button>
             </div>
           </a>
-          <a th:href="@{/home}">
+          <a th:href="@{/data-kategori}">
             <div class="menu-card">
               <div class="card-details">
                 <span class="text-center">

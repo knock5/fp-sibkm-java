@@ -9,7 +9,7 @@ public class HomeController {
 
   @GetMapping
   public String index(Model model) {
-    model.addAttribute("title", "Home");
+    model.addAttribute("title", "LaporYuk - Home");
     model.addAttribute("isActive", "home");
 
     return "views/home";
@@ -17,7 +17,7 @@ public class HomeController {
 
   @GetMapping("/home")
   public String home(Model model) {
-    model.addAttribute("title", "Home");
+    model.addAttribute("title", "LaporYuk - Home");
     model.addAttribute("isActive", "home");
 
     return "views/home";
@@ -25,7 +25,7 @@ public class HomeController {
 
   @GetMapping("/h-kategori")
   public String kategoriHome(Model model) {
-    model.addAttribute("title", "Kategori Pengaduan");
+    model.addAttribute("title", "LaporYuk - Kategori Pengaduan");
     model.addAttribute("isActive", "h-kategori");
 
     return "views/kategori-pengaduan";
@@ -33,7 +33,7 @@ public class HomeController {
 
   @GetMapping("/h-tentang")
   public String tentang(Model model) {
-    model.addAttribute("title", "Tentang");
+    model.addAttribute("title", "LaporYuk - Tentang");
     model.addAttribute("isActive", "h-tentang");
 
     return "views/tentang";
