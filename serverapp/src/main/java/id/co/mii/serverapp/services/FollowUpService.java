@@ -83,4 +83,11 @@ public class FollowUpService {
     followUp.setId(id);
     return followUpRepository.save(followUp);
   }
+
+  public FollowUp delete(Integer id) {
+    FollowUp followUp = getById(id);
+    followUpRepository.delete(followUp);
+
+    return followUp;
+  }
 }

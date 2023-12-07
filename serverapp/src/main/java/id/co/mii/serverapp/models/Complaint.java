@@ -2,6 +2,7 @@ package id.co.mii.serverapp.models;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.sql.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -65,5 +66,6 @@ public class Complaint {
     cascade = CascadeType.ALL,
     fetch = FetchType.LAZY
   )
+  @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
   private List<History> histories;
 }
