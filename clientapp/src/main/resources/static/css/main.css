@@ -14,26 +14,32 @@
 }
 
 /* color label status */
-.Selesai {
+.Selesai,
+.selesai {
   background-color: var(--green);
 }
-.Diterima {
+.Diterima,
+.diterima {
   background-color: #17a2b8;
   color: #fff;
 }
-.Diproses {
+.Diproses,
+.diproses {
   background-color: #ffc107;
   color: #333;
 }
-.Ditolak {
+.Ditolak,
+.ditolak {
   background-color: #dc3545;
   color: #fff;
 }
-.Terkirim {
+.Terkirim,
+.terkirim {
   background-color: #007bff;
   color: #fff;
 }
-.Menunggu {
+.Menunggu,
+.menunggu {
   background-color: #6c757d;
   color: #fff;
 }
