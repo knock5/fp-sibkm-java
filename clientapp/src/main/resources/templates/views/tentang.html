@@ -4,86 +4,143 @@
   layout:decorate="~{layouts/main.html}"
 >
   <head>
-    <link 
-      rel="stylesheet" 
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" 
-      integrity="sha512-... (nilai integritas) ..." 
-      crossorigin="anonymous" 
-    />
+    <!-- local CSS -->
+    <link rel="stylesheet" th:href="@{/css/about.css}" />
+
     <title th:text="${title}"></title>
   </head>
   <body>
     <!-- content -->
     <section class="container-fluid p-3 wrapper" layout:fragment="content">
-      <div class="about">
-        <h1>Tentang Kami</h1>
-        <div class="about-info">
-            <div class="about-img">
-                <img th:src="@{/img/kelompok2.jpeg}">
+      <div class="container">
+        <h1 class="text-center pt-3">Tentang LaporYuk</h1>
+        <div class="py-3">
+          <p class="text-center">
+            Kami adalah tim yang berkomitmen untuk menciptakan solusi inovatif
+            dan memberikan layanan terbaik bagi masyarakat. Dengan semangat
+            pelayanan dan dedikasi kami, LaporYuk hadir sebagai langkah nyata
+            dalam memperbaiki kualitas hidup dan menjawab berbagai tantangan
+            yang dihadapi masyarakat.
+          </p>
+          <p class="text-center">
+            Pada sisi backend, kami memilih Java Spring Boot sebagai fondasi
+            utama proyek kami. Java Spring Boot memberikan kerangka kerja yang
+            kuat dan terstruktur untuk pengembangan aplikasi berbasis mikro dan
+            mendukung pengelolaan sumber daya dengan baik. Dengan menggunakan
+            bahasa pemrograman Java, kami dapat memastikan keandalan, kinerja,
+            dan keamanan tinggi pada setiap langkah pengembangan.
+          </p>
+          <p class="text-center">
+            Di sisi frontend, kami memilih Thymeleaf, bootstrap, DataTables, dan
+            JQuery untuk memberikan pengalaman pengguna yang intuitif dan
+            responsif. Pendekatan ini memungkinkan kami menghadirkan antarmuka
+            yang menarik dan mudah digunakan, memastikan bahwa setiap pengguna
+            dapat berinteraksi dengan platform kami dengan nyaman dan efisien.
+          </p>
+        </div>
+        <div
+          class="d-flex justify-content-center align-items-center gap-3 flex-wrap py-3"
+        >
+          <div>
+            <img th:src="@{/img/kelompok2.jpeg}" class="about-img" />
+          </div>
+          <div>
+            <p>
+              Kami dari Kelompok 2
+              <br />
+              Mahasiwa SIBKM batch 5. FullStack Java Developer
+              <br />
+              Metrodata Academy
+            </p>
+            <div class="d-flex py-1 gap-2">
+              <i class="bi bi-github"></i>
+              <a href="https://github.com/SIBKM-05-Java/S4-Kelompok_02">
+                GitHub
+              </a>
             </div>
-            <div>
-                <p>Hallo !</p>
-                <p>Kami dari Kelompok 2</p>
-                <p>Mahasiwa SIBKM batch 5. FullStack Java Developer</p>
-                <p>Metrodata Academy</p>
-                <a href="https://github.com/SIBKM-05-Java/S4-Kelompok_02">
-                  <i class="fab fa-github"></i> GITHUB
-                </a>
-            </div>
+          </div>
         </div>
       </div>
-      <div class="team">
-        <h1>Temui Team Kami</h1>
-      <div class="team-cards">
+      <div class="container py-4">
+        <h1 class="text-center pt-5">Temui Tim Kami</h1>
+        <div class="d-flex justify-content-center gap-3 flex-wrap pt-3">
           <!-- Card 1 -->
           <div class="card">
-              <div class="card-img">
-                  <img th:src="@{/img/icon-profile.jpeg}" alt="User 1">
-              </div>
-              <div class="card-info">
-                  <h2 class="card-name">Moch. Miftachul Huda</h2>
-                  <p class="card-role">Universitas Islam Lamongan</p>
-                  <p class="card-email">putihbiru0505@gmail.com</p>
-                  <p><button class="button">Contact</button></p>
-              </div>
+            <div class="d-flex justify-content-center">
+              <img
+                th:src="@{/img/icon-profile.jpeg}"
+                alt="User 1"
+                class="w-100"
+              />
+            </div>
+            <div class="card-info p-3 text-center">
+              <h4>Moch. Miftachul Huda</h4>
+              <p class="text-muted">
+                Universitas Islam Lamongan
+                <br />
+                miftachulhd5@gmail.com
+              </p>
+              <p><button class="button">Contact</button></p>
+            </div>
           </div>
 
           <!-- Card 2 -->
           <div class="card">
-              <div class="card-img">
-                  <img th:src="@{/img/icon-profile.jpeg}" alt="User 2">
-              </div>
-              <div class="card-info">
-                  <h2 class="card-name">Indri Melani Putri</h2>
-                  <p class="card-role">Universitas Islam Nusantara</p>
-                  <p class="card-email">indrimp03@gmail.com</p>
-                  <p><button class="button">Contact</button></p>
-              </div>
+            <div class="d-flex justify-content-center">
+              <img
+                th:src="@{/img/icon-profile.jpeg}"
+                alt="User 2"
+                class="w-100"
+              />
+            </div>
+            <div class="card-info p-3 text-center">
+              <h4>Indri Melani Putri</h4>
+              <p class="text-muted">
+                Universitas Islam Nusantara
+                <br />
+                indrimp03@gmail.com
+              </p>
+              <p><button class="button">Contact</button></p>
+            </div>
           </div>
           <!-- Card 3 -->
           <div class="card">
-              <div class="card-img">
-                  <img th:src="@{/img/icon-profile.jpeg}" alt="User 3">
-              </div>
-              <div class="card-info">
-                  <h2 class="card-name">Deni Chandra</h2>
-                  <p class="card-role">Universitas Mercu Buana</p>
-                  <p class="card-email">deni.chandra03@gmail.com</p>
-                  <p><button class="button">Contact</button></p>
-              </div>
+            <div class="d-flex justify-content-center">
+              <img
+                th:src="@{/img/icon-profile.jpeg}"
+                alt="User 3"
+                class="w-100"
+              />
+            </div>
+            <div class="card-info p-3 text-center">
+              <h4>Deni Chandra</h4>
+              <p class="text-muted">
+                Universitas Mercu Buana
+                <br />
+                deni.chandra03@gmail.com
+              </p>
+              <p><button class="button">Contact</button></p>
+            </div>
           </div>
           <!-- Card 4 -->
           <div class="card">
-            <div class="card-img">
-                <img th:src="@{/img/icon-profile.jpeg}" alt="User 4">
+            <div class="d-flex justify-content-center">
+              <img
+                th:src="@{/img/icon-profile.jpeg}"
+                alt="User 4"
+                class="w-100"
+              />
             </div>
-            <div class="card-info">
-                <h2 class="card-name">Ainul Irsyad Dul Ma'Arif</h2>
-                <p class="card-role">Universitas Islam Sultan Agung</p>
-                <p class="card-email">irsyaddulmaarif80@gmail.com</p>
-                <p><button class="button">Contact</button></p>
+            <div class="card-info p-3 text-center">
+              <h4>Ainul Irsyad Dul Ma'Arif</h4>
+              <p class="text-muted">
+                Universitas Islam Sultan Agung
+                <br />
+                irsyaddulmaarif80@gmail.com
+              </p>
+              <p><button class="button">Contact</button></p>
             </div>
-        </div>
+          </div>
         </div>
       </div>
     </section>
