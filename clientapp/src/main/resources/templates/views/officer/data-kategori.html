@@ -34,6 +34,115 @@
       </div>
 
       <div class="container mt-3" id="contentMenu"></div>
+      
+      <!-- Modal create -->
+      <div 
+        class="modal fade" 
+        id="createCategoryModal"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false" 
+        tabindex="-1" 
+        aria-labelledby="createModalLabel" 
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="createModalLabel">Tambah Kategori</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+              <form>
+                <div class="modal-body">
+                  <div class="input-group my-2">
+                    <span class="input-group-text fw-bold bg-warning-subtle" id="c-name">Name</span>
+                    <input 
+                      type="text"
+                      class="form-control"
+                      aria-label="Sizing example input"
+                      aria-describedby="c-name"
+                      id="category-name"
+                      required
+                    />
+                  </div>
+                  <div class="input-group my-2">
+                    <span class="input-group-text fw-bold bg-warning-subtle" id="c-deskripsi">Deskripsi</span>
+                    <input 
+                      type="text"
+                      class="form-control"
+                      aria-label="Sizing example input"
+                      aria-describedby="c-deskripsi"
+                      id="category-description"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                    Kembali
+                  </button>
+                  <button id="create-category" type="submit" class="btn btn-outline-success">
+                    Simpan
+                  </button>
+                </div>
+              </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Update -->
+      <div 
+        class="modal fade" 
+        id="updateCategoryModal"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false" 
+        tabindex="-1" 
+        aria-labelledby="updateModalLabel" 
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="updateModalLabel">Edit Kategori</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+              <form>
+                <div class="modal-body">
+                  <div class="input-group my-2">
+                    <span class="input-group-text fw-bold bg-warning-subtle" id="u-name">Name</span>
+                    <input 
+                      type="text"
+                      class="form-control"
+                      aria-label="Sizing example input"
+                      aria-describedby="u-name"
+                      id="update-name"
+                      required
+                    />
+                  </div>
+                  <div class="input-group my-2">
+                    <span class="input-group-text fw-bold bg-warning-subtle" id="u-deskripsi">Deskripsi</span>
+                    <input 
+                      type="text"
+                      class="form-control"
+                      aria-label="Sizing example input"
+                      aria-describedby="u-deskripsi"
+                      id="update-description"
+                      required
+                    />
+                    <input type="hidden" id="update-id" />
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                    Kembali
+                  </button>
+                  <button id="update-category" type="submit" class="btn btn-outline-success">
+                    Simpan
+                  </button>
+                </div>
+              </form>
+          </div>
+        </div>
+      </div>
     </section>
 
     <div layout:fragment="js">

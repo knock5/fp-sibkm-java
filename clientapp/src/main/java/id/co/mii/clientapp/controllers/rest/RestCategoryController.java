@@ -30,7 +30,12 @@ public class RestCategoryController {
     return categoryService.create(category);
   }
 
-  @PutMapping("/{id}")
+  @GetMapping("/{id}")
+  public Category getById(@PathVariable("id") Integer id) {
+    return categoryService.getById(id);
+  }
+
+  @PutMapping("/update/{id}")
   public Category update(
     @PathVariable("id") Integer id,
     @RequestBody Category category
