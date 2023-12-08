@@ -41,6 +41,17 @@ public class CategoryService {
       .getBody();
   }
 
+  public Category getById(Integer id) {
+    return restTemplate
+      .exchange(
+        url.concat("/" + id),
+        HttpMethod.GET,
+        null,
+        Category.class
+      )
+      .getBody();
+  }
+
   public Category update(Integer id, Category category) {
     return restTemplate
       .exchange(
