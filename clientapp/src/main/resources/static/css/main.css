@@ -13,6 +13,31 @@
   --red: #e21818;
 }
 
+/* color label status */
+.Selesai {
+  background-color: var(--green);
+}
+.Diterima {
+  background-color: #17a2b8;
+  color: #fff;
+}
+.Diproses {
+  background-color: #ffc107;
+  color: #333;
+}
+.Ditolak {
+  background-color: #dc3545;
+  color: #fff;
+}
+.Terkirim {
+  background-color: #007bff;
+  color: #fff;
+}
+.Menunggu {
+  background-color: #6c757d;
+  color: #fff;
+}
+
 .hiding {
   display: none;
 }
@@ -82,6 +107,15 @@
   }
 } */
 
+/* dashboard officer */
+.id-kategori {
+  background-color: var(--second);
+  color: var(--black);
+}
+.title-card {
+  font-size: 1.5rem;
+}
+
 /* category */
 .wrap-category {
   padding: 15px 0;
@@ -110,6 +144,9 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 1.5rem;
+}
+.wrap-card > a {
+  text-decoration: none;
 }
 .menu-card {
   width: 200px;

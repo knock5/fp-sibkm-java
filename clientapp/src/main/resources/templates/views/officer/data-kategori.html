@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layouts/main.html}"
+>
+  <head>
+    <title th:text="${title}"></title>
+  </head>
+  <body>
+    <!-- content -->
+    <section class="container-fluid p-3 wrapper" layout:fragment="content">
+      <div class="container">
+        <div
+          class="d-flex justify-content-between align-items-center flex-wrap gap-3"
+        >
+          <a th:href="@{/o-dashboard}" class="btn btn-warning">Kembali</a>
+          <h1>Data Kategori</h1>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-center align-items-center pt-3 gap-3">
+        <h3>Total Data: <span id="totalDataKategori"></span></h3>
+        <!-- Button trigger modal create -->
+        <button
+          type="button"
+          class="btn btn-outline-success btn-sm"
+          data-bs-toggle="modal"
+          data-bs-target="#createCategoryModal"
+          title="add"
+        >
+          Tambah Kategori
+          <i class="bi bi-plus-circle"></i>
+        </button>
+      </div>
+
+      <div class="container mt-3" id="contentMenu"></div>
+    </section>
+
+    <div layout:fragment="js">
+      <script th:src="@{/js/officers/dataKategori.js}"></script>
+    </div>
+  </body>
+</html>

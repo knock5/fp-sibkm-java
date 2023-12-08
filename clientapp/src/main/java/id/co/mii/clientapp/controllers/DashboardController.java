@@ -9,7 +9,7 @@ public class DashboardController {
 
   @GetMapping("/a-dashboard")
   public String dashboardAdmin(Model model) {
-    model.addAttribute("title", "Dashboard Admin");
+    model.addAttribute("title", "LaporYuk - Dashboard Admin");
     model.addAttribute("isActive", "a-dashboard");
 
     return "views/admin/dashboard-admin";
@@ -17,7 +17,7 @@ public class DashboardController {
 
   @GetMapping("/u-dashboard")
   public String dashboardUser(Model model) {
-    model.addAttribute("title", "Dashboard User");
+    model.addAttribute("title", "LaporYuk - Dashboard User");
     model.addAttribute("isActive", "u-dashboard");
 
     return "views/user/dashboard-user";
@@ -25,7 +25,7 @@ public class DashboardController {
 
   @GetMapping("/o-dashboard")
   public String dashboardOfficer(Model model) {
-    model.addAttribute("title", "Dashboard Officer");
+    model.addAttribute("title", "LaporYuk - Dashboard Officer");
     model.addAttribute("isActive", "o-dashboard");
 
     return "views/officer/dashboard-officer";
