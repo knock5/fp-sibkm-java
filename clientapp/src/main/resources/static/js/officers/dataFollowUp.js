@@ -7,6 +7,7 @@ $(document).ready(function () {
       method: "GET",
       dataSrc: "",
     },
+    scrollX: 500,
     columns: [
       {
         data: null,
