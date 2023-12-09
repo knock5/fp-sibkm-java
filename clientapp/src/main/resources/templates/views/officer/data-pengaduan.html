@@ -10,7 +10,15 @@
     <!-- content -->
     <section class="container-fluid p-3 wrapper" layout:fragment="content">
       <div class="container">
-        <h2 class="text-center">Data Pengaduan</h2>
+        <div
+          class="d-flex justify-content-between align-items-center flex-wrap gap-3"
+        >
+          <a th:href="@{/o-dashboard}" class="btn btn-warning">Kembali</a>
+          <h1>Data Pengaduan</h1>
+        </div>
+      </div>
+
+      <div class="container py-4">
         <table
           id="tableComplaint"
           class="table table-bordered table-striped table-hover"
