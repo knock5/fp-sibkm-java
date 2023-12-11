@@ -19,7 +19,7 @@
       </div>
 
       <div class="d-flex justify-content-center align-items-center pt-3 gap-3">
-        <h3>Total Data: <span id="totalDataKategori"></span></h3>
+        <h3>Total Data: <span id="totalDataKategori">0</span></h3>
         <!-- Button trigger modal create -->
         <button
           type="button"
@@ -36,60 +36,66 @@
       <div class="container mt-3" id="contentMenu"></div>
 
       <!-- Modal create -->
-      <div 
-        class="modal fade" 
+      <div
+        class="modal fade"
         id="createCategoryModal"
         data-bs-backdrop="static"
-        data-bs-keyboard="false" 
-        tabindex="-1" 
-        aria-labelledby="createModalLabel" 
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="createModalLabel"
         aria-hidden="true"
       >
         <div class="modal-dialog">
           <div class="modal-content">
-            <div class="modal-header bg-dark-subtle">
-              <h1 class="modal-title fs-5 text-light" id="createModalLabel">Tambah Kategori</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="createModalLabel">
+                Tambah Kategori
+              </h1>
             </div>
-              <form>
-                <div class="modal-body">
-                  <div class="input-group my-2">
-                    <span class="input-group-text fw-bold bg-warning" id="c-name">Name</span>
-                    <input 
-                      type="text"
-                      class="form-control"
-                      aria-label="Sizing example input"
-                      aria-describedby="c-name"
-                      id="category-name"
-                      required
-                    />
-                  </div>
-                  <div class="input-group my-2">
-                    <span class="input-group-text fw-bold bg-warning" id="c-deskripsi">Deskripsi</span><br>
-                    <textarea
-                      class="border border-secondary" 
-                      name="deskripsi"
-                      rows="5"
-                      cols="70"
-                      id="category-description"
-                      required
-                    >
-                    </textarea>
-                  </div>
+            <form>
+              <div class="modal-body">
+                <div class="input-group my-2">
+                  <span class="input-group-text bg-warning">Nama Kategori</span>
+                  <input
+                    type="text"
+                    class="form-control"
+                    aria-label="Sizing example input"
+                    aria-describedby="name"
+                    name="name"
+                    id="category-name"
+                    required
+                  />
                 </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
-                    Kembali
-                  </button>
-                  <button id="create-category" type="submit" class="btn btn-outline-success">
-                    Simpan
-                  </button>
+                <div class="input-group my-2">
+                  <span class="input-group-text bg-warning">Deskripsi</span>
+                  <textarea
+                    class="form-control"
+                    id="category-description"
+                    name="description"
+                    aria-label="Deskripsi Kategori"
+                  ></textarea>
                 </div>
-              </form>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-outline-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Batal
+                </button>
+                <button
+                  id="create-category"
+                  type="submit"
+                  class="btn btn-success"
+                >
+                  Simpan
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
-
 
       <!-- Modal Edit Kategori -->
       <div
@@ -102,90 +108,107 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5" id="updateModalLabel">Edit Kategori</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-              <form>
-                <div class="modal-body">
-                  <div class="input-group my-2">
-                    <span class="input-group-text fw-bold bg-warning-subtle" id="u-name">Name</span>
-                    <input 
-                      type="text"
-                      class="form-control"
-                      aria-label="Sizing example input"
-                      aria-describedby="u-name"
-                      id="update-name"
-                      required
-                    />
-                  </div>
-                  <div class="input-group my-2">
-                    <span class="input-group-text fw-bold bg-warning-subtle" id="u-deskripsi">Deskripsi</span>
-                    <input 
-                      type="text"
-                      class="form-control"
-                      aria-label="Sizing example input"
-                      aria-describedby="u-deskripsi"
-                      id="update-description"
-                      required
-                    />
-                    <input type="hidden" id="update-id" />
-                  </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
-                    Kembali
-                  </button>
-                  <button id="update-category" type="submit" class="btn btn-outline-success">
-                    Simpan
-                  </button>
-                </div>
-              </form>
-              <h1 class="modal-title fs-5" id="exampleModalLabel">
-                Detail Pengguna
+              <h1 class="modal-title fs-5" id="updateModalLabel">
+                Edit Kategori
               </h1>
-            </div>
-            <div class="modal-body">
-              <div class="my-3">
-                <label for="idCategoryUpdate" class="form-label">ID</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="idCategoryUpdate"
-                  name="id"
-                  readonly
-                />
-              </div>
-              <div class="my-3">
-                <label for="title" class="form-label">Judul Kategori</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="title"
-                  name="title"
-                />
-              </div>
-              <div class="my-3">
-                <label for="description" class="form-label"
-                  >Deskripsi Kategori</label
-                >
-                <textarea
-                  class="form-control"
-                  id="description"
-                  name="description"
-                  rows="3"
-                ></textarea>
-              </div>
-            </div>
-            <div class="modal-footer">
               <button
                 type="button"
-                class="btn btn-outline-warning"
+                class="btn-close"
                 data-bs-dismiss="modal"
-              >
-                Batal
-              </button>
-              <button type="button" class="btn btn-success">Simpan</button>
+                aria-label="Close"
+              ></button>
             </div>
+            <form>
+              <div class="modal-body">
+                <div class="input-group my-2">
+                  <span
+                    class="input-group-text fw-bold bg-warning-subtle"
+                    id="u-name"
+                    >Name</span
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    aria-label="Sizing example input"
+                    aria-describedby="u-name"
+                    id="update-name"
+                    required
+                  />
+                </div>
+                <div class="input-group my-2">
+                  <span
+                    class="input-group-text fw-bold bg-warning-subtle"
+                    id="u-deskripsi"
+                    >Deskripsi</span
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    aria-label="Sizing example input"
+                    aria-describedby="u-deskripsi"
+                    id="update-description"
+                    required
+                  />
+                  <input type="hidden" id="update-id" />
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-outline-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Kembali
+                </button>
+                <button
+                  id="update-category"
+                  type="submit"
+                  class="btn btn-outline-success"
+                >
+                  Simpan
+                </button>
+              </div>
+            </form>
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              Detail Pengguna
+            </h1>
+          </div>
+          <div class="modal-body">
+            <div class="my-3">
+              <label for="idCategoryUpdate" class="form-label">ID</label>
+              <input
+                type="text"
+                class="form-control"
+                id="idCategoryUpdate"
+                name="id"
+                readonly
+              />
+            </div>
+            <div class="my-3">
+              <label for="title" class="form-label">Judul Kategori</label>
+              <input type="text" class="form-control" id="title" name="title" />
+            </div>
+            <div class="my-3">
+              <label for="description" class="form-label"
+                >Deskripsi Kategori</label
+              >
+              <textarea
+                class="form-control"
+                id="description"
+                name="description"
+                rows="3"
+              ></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-outline-warning"
+              data-bs-dismiss="modal"
+            >
+              Batal
+            </button>
+            <button type="button" class="btn btn-success">Simpan</button>
           </div>
         </div>
       </div>

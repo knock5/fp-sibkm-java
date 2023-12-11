@@ -25,7 +25,7 @@ $(document).ready(function () {
         data: null,
         className: "text-center",
         render: function (data) {
-          return `<span class="badge bg-success">${data.status.name}</span>`;
+          return `<span class="badge ${data.status.name}">${data.status.name}</span>`;
         },
       },
       {

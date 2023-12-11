@@ -47,31 +47,35 @@ $(document).ready(function () {
       });
     },
   });
+
+  // empty input create modal
+  $("#createCategoryModal").on("hidden.bs.modal", function (e) {
+    $("#category-name").val("");
+    $("#category-description").val("");
+  });
 });
 
 // tambah kategori
-$("#create-category").click((event) => {
-  event.preventDefault();
+$("#create-category").click((e) => {
+  e.preventDefault();
 
-  let valueName = $("#category-name").val();
-  let valueDescript = $("#category-description").val();
-  console.log(valueName);
-  console.log(valueDescript);
+  const valueName = $("#category-name").val();
+  const valueDescription = $("#category-description").val();
 
   $.ajax({
-    method: "POST",
     url: "/api/category",
-    dataType: "JSON",
+    method: "POST",
     contentType: "application/json",
+    dataType: "JSON",
     data: JSON.stringify({
       name: valueName,
-      descript: valueDescript,
+      description: valueDescription,
     }),
-
     success: (res) => {
-      // console.log(res);
+      // add element
+      updateCard(res);
+
       $("#createCategoryModal").modal("hide");
-      $("#contentMenu").ajax.reload();
       Swal.fire({
         position: "center",
         icon: "success",
@@ -83,7 +87,7 @@ $("#create-category").click((event) => {
       $("#category-description").val("");
     },
     error: (err) => {
-      // console.log(err);
+      console.log(err);
       Swal.fire({
         position: "center",
         icon: "error",
@@ -94,6 +98,49 @@ $("#create-category").click((event) => {
     },
   });
 });
+// function update card
+const updateCard = (res) => {
+  $("#contentMenu").append(`
+  <div class="card my-3">
+    <div class="card-header bg-dark d-flex gap-3 align-items-center text-white">
+      <span class="id-kategori p-2 rounded">#${res.id}</span>
+      <span class="title-card">${res.name}</span>
+    </div>
+    <div class="card-body">
+      <p class="card-text">${res.description}</p>
+      <!-- Button trigger modal update -->
+      <button
+        type="button"
+        class="btn btn-outline-warning btn-sm"
+        data-bs-toggle="modal"
+        data-bs-target="#updateCategoryModal"
+        onclick="updateCategory(${res.id})"
+        title="edit"
+      >
+        Edit
+        <i class="bi bi-pencil-square"></i>
+      </button>
+      <!-- Button trigger modal delete -->
+      <button
+        type="button"
+        class="btn btn-outline-danger btn-sm"
+        data-bs-toggle="modal"
+        data-bs-target="#deleteCategoryModal"
+        onclick="deleteCategory(${res.id})"
+        title="delete"
+      >
+        Delete
+        <i class="bi bi-trash"></i>
+      </button>
+    </div>
+  </div>
+  `);
+
+  // update total data
+  const totalData = $("#totalDataKategori").text();
+  const total = parseInt(totalData) + 1;
+  $("#totalDataKategori").text(total);
+};
 
 // edit kategori
 function updateCategory(id) {
@@ -154,58 +201,48 @@ function deleteCategory(id) {
   const swalWithBootstrapButtons = Swal.mixin({
     customClass: {
       confirmButton: "btn btn-success",
-      cancelButton: "btn btn-danger"
+      cancelButton: "btn btn-danger",
     },
-    buttonsStyling: false
+    buttonsStyling: false,
   });
-  swalWithBootstrapButtons.fire({
-    title: "Apakah anda yakin?",
-    text: "Anda ingin menghapus kategori ini!",
-    icon: "warning",
-    showCancelButton: true,
-    confirmButtonText: "Ya, hapus!",
-    cancelButtonText: "Tidak, cancel!",
-    reverseButtons: true
-  }).then((result) => {
-    if (result.isConfirmed) {
-      $.ajax({
-        method: "DELETE",
-        url: "/api/category/" + id,
-        dataType: "JSON",
-        contentType: "application/json",
-        success: (res) => {
-          swalWithBootstrapButtons.fire({
-            title: "Terhapus!",
-            text: "Kategori anda berhasil dihapus.",
-            icon: "success"
-          });
-          // $("#contentMenu").DataTable().ajax.reload();
-        },
-        error: (err) => {
-          console.error(err);
-        },
-      });
-    } else if (
-      /* Read more about handling dismissals below */
-      result.dismiss === Swal.DismissReason.cancel
-    ) {
-      swalWithBootstrapButtons.fire({
-        title: "Cancelled",
-        text: "File kategori anda tetap aman :)",
-        icon: "error"
-      });
-    }
-  });
-};
-
-const updateCategory = (id) => {
-  $.ajax({
-    url: `/api/category/${id}`,
-    method: "GET",
-    dataType: "JSON",
-    success: (res) => {
-      $("#idCategoryUpdate").val(res.id);
-      $("#nameCategory").val(res.name);
-    },
-  });
-};
+  swalWithBootstrapButtons
+    .fire({
+      title: "Apakah anda yakin?",
+      text: "Anda ingin menghapus kategori ini!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Ya, hapus!",
+      cancelButtonText: "Tidak, cancel!",
+      reverseButtons: true,
+    })
+    .then((result) => {
+      if (result.isConfirmed) {
+        $.ajax({
+          method: "DELETE",
+          url: "/api/category/" + id,
+          dataType: "JSON",
+          contentType: "application/json",
+          success: (res) => {
+            swalWithBootstrapButtons.fire({
+              title: "Terhapus!",
+              text: "Kategori anda berhasil dihapus.",
+              icon: "success",
+            });
+            // $("#contentMenu").DataTable().ajax.reload();
+          },
+          error: (err) => {
+            console.error(err);
+          },
+        });
+      } else if (
+        /* Read more about handling dismissals below */
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        swalWithBootstrapButtons.fire({
+          title: "Cancelled",
+          text: "File kategori anda tetap aman :)",
+          icon: "error",
+        });
+      }
+    });
+}
