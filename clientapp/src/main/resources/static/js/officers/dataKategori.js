@@ -1,13 +1,30 @@
+const urlCategory = "/api/category";
+
 $(document).ready(function () {
+  // get all data
+  getAllDataCategories();
+
+  // empty input create modal
+  $("#createCategoryModal").on("hidden.bs.modal", function (e) {
+    $("#category-name").val("");
+    $("#category-description").val("");
+  });
+});
+
+// function get all data
+const getAllDataCategories = () => {
   $.ajax({
-    url: "/api/category",
+    url: urlCategory,
     method: "GET",
     dataType: "JSON",
     success: (res) => {
       // Set total data
       $("#totalDataKategori").text(res.length);
 
-      // data content coomplaint
+      // empty content category
+      $("#contentMenu").empty();
+
+      // data content category
       res.map((data) => {
         $("#contentMenu").append(`
         <div class="card my-3">
@@ -47,16 +64,169 @@ $(document).ready(function () {
       });
     },
   });
+};
+
+// tambah kategori
+$("#create-category").click((e) => {
+  e.preventDefault();
+
+  const valueName = $("#category-name").val();
+  const valueDescription = $("#category-description").val();
+
+  $.ajax({
+    url: urlCategory,
+    method: "POST",
+    contentType: "application/json",
+    dataType: "JSON",
+    data: JSON.stringify({
+      name: valueName,
+      description: valueDescription,
+    }),
+    success: () => {
+      getAllDataCategories();
+
+      $("#createCategoryModal").modal("hide");
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Kategori berhasil di simpan!",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+    },
+    error: (err) => {
+      console.log(err);
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Gagal menyimpan kategori baru!",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+    },
+  });
 });
 
+// edit kategori
 const updateCategory = (id) => {
   $.ajax({
-    url: `/api/category/${id}`,
     method: "GET",
+    url: `/api/category/${id}`,
     dataType: "JSON",
+    contentType: "application/json",
     success: (res) => {
-      $("#idCategoryUpdate").val(res.id);
-      $("#nameCategory").val(res.name);
+      $("#update-id").val(res.id);
+      $("#update-name").val(res.name);
+      $("#update-description").val(res.description);
+    },
+    error: () => {
+      swal.fire({
+        title: "Gagal!",
+        text: "Gagal mengambil data kategori!",
+        icon: "error",
+        confirmButtonText: "Ok",
+      });
     },
   });
 };
+
+$("#update-category").click((event) => {
+  event.preventDefault();
+
+  const valueId = $("#update-id").val();
+  const valueName = $("#update-name").val();
+  const valueDescription = $("#update-description").val();
+
+  console.log(valueId);
+  console.log(valueName);
+  console.log(valueDescription);
+
+  $.ajax({
+    method: "PUT",
+    url: "/api/category/update/" + valueId,
+    dataType: "JSON",
+    contentType: "application/json",
+    data: JSON.stringify({
+      name: valueName,
+      description: valueDescription,
+    }),
+    success: () => {
+      getAllDataCategories();
+
+      $("#updateCategoryModal").modal("hide");
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Kategori berhasil di edit!",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+      $("#category-name").val("");
+      $("#category-description").val("");
+    },
+    error: () => {
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Gagal mengedit kategori!",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+    },
+  });
+});
+
+const deleteCategory = (id) => {
+  $.ajax({
+    method: "GET",
+    url: `/api/category/${id}`,
+    dataType: "JSON",
+    contentType: "application/json",
+    success: (res) => {
+      $("#delete-id").val(res.id);
+      $("#delete-name").val(res.name);
+    },
+    error: () => {
+      swal.fire({
+        title: "Gagal!",
+        text: "Gagal mengambil data kategori!",
+        icon: "error",
+        confirmButtonText: "Ok",
+      });
+    },
+  });
+};
+
+$("#delete-category").click((event) => {
+  event.preventDefault();
+
+  const valueId = $("#delete-id").val();
+
+  $.ajax({
+    method: "DELETE",
+    url: `/api/category/${valueId}`,
+    dataType: "JSON",
+    contentType: "application/json",
+    success: () => {
+      getAllDataCategories();
+
+      $("#deleteCategoryModal").modal("hide");
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Kategori berhasil di hapus!",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+    },
+    error: () => {
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Gagal menghapus kategori!",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+    },
+  });
+});

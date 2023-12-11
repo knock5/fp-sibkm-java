@@ -22,13 +22,13 @@ public class Category {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name = "category_id", length = 30)
+  @Column(name = "category_id")
   private Integer id;
 
   @Column(name = "category_name", length = 50, unique = true, nullable = false)
   private String name;
 
-  @Column(nullable = false, columnDefinition = "TEXT")
+  @Column(columnDefinition = "TEXT", nullable = false)
   private String description;
 
   @OneToMany(mappedBy = "category")

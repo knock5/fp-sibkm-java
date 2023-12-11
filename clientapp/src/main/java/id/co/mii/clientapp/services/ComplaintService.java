@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -35,6 +36,12 @@ public class ComplaintService {
       .getBody();
   }
 
+  public Complaint create(Complaint complaint) {
+    return restTemplate
+      .exchange(url, HttpMethod.POST, new HttpEntity<>(complaint), Complaint.class)
+      .getBody();
+  }
+  
   public Complaint delete(Integer id) {
     return restTemplate
       .exchange(url.concat("/" + id), HttpMethod.DELETE, null, Complaint.class)
