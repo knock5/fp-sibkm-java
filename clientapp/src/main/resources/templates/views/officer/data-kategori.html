@@ -73,6 +73,7 @@
                     id="category-description"
                     name="description"
                     aria-label="Deskripsi Kategori"
+                    rows="7"
                   ></textarea>
                 </div>
               </div>
@@ -111,19 +112,12 @@
               <h1 class="modal-title fs-5" id="updateModalLabel">
                 Edit Kategori
               </h1>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
             </div>
             <form>
+              <input type="text" id="update-id" hidden />
               <div class="modal-body">
                 <div class="input-group my-2">
-                  <span
-                    class="input-group-text fw-bold bg-warning-subtle"
-                    id="u-name"
+                  <span class="input-group-text bg-warning" id="u-name"
                     >Name</span
                   >
                   <input
@@ -136,20 +130,13 @@
                   />
                 </div>
                 <div class="input-group my-2">
-                  <span
-                    class="input-group-text fw-bold bg-warning-subtle"
-                    id="u-deskripsi"
-                    >Deskripsi</span
-                  >
-                  <input
-                    type="text"
+                  <span class="input-group-text bg-warning">Deskripsi</span>
+                  <textarea
                     class="form-control"
-                    aria-label="Sizing example input"
-                    aria-describedby="u-deskripsi"
                     id="update-description"
-                    required
-                  />
-                  <input type="hidden" id="update-id" />
+                    aria-label="Deskripsi Kategori"
+                    rows="7"
+                  ></textarea>
                 </div>
               </div>
               <div class="modal-footer">
@@ -163,52 +150,62 @@
                 <button
                   id="update-category"
                   type="submit"
-                  class="btn btn-outline-success"
+                  class="btn btn-success"
                 >
                   Simpan
                 </button>
               </div>
             </form>
-            <h1 class="modal-title fs-5" id="exampleModalLabel">
-              Detail Pengguna
-            </h1>
           </div>
-          <div class="modal-body">
-            <div class="my-3">
-              <label for="idCategoryUpdate" class="form-label">ID</label>
-              <input
-                type="text"
-                class="form-control"
-                id="idCategoryUpdate"
-                name="id"
-                readonly
-              />
-            </div>
-            <div class="my-3">
-              <label for="title" class="form-label">Judul Kategori</label>
-              <input type="text" class="form-control" id="title" name="title" />
-            </div>
-            <div class="my-3">
-              <label for="description" class="form-label"
-                >Deskripsi Kategori</label
+        </div>
+      </div>
+
+      <!-- Modal delete -->
+      <div
+        class="modal fade"
+        id="deleteCategoryModal"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1
+                class="modal-title fs-3 fw-bold m-auto"
+                id="staticBackdropLabel"
               >
-              <textarea
-                class="form-control"
-                id="description"
-                name="description"
-                rows="3"
-              ></textarea>
+                Informasi
+              </h1>
             </div>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-outline-warning"
-              data-bs-dismiss="modal"
-            >
-              Batal
-            </button>
-            <button type="button" class="btn btn-success">Simpan</button>
+            <form>
+              <div class="modal-body">
+                <div class="my-3 d-flex justify-content-center">
+                  <input type="text" id="delete-id" hidden />
+                  <h4 class="fs-6 fw-bold">
+                    Apakah kamu yakin ingin menghapus kategori ini?
+                  </h4>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-bs-dismiss="modal"
+                >
+                  Batal
+                </button>
+                <button
+                  type="submit"
+                  id="delete-category"
+                  class="btn btn-outline-danger fw-bold"
+                >
+                  Iya, Hapus!
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
