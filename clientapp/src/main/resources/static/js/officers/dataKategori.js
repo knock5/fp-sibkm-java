@@ -1,4 +1,16 @@
 $(document).ready(function () {
+  // get all data
+  getAllDataCategories();
+
+  // empty input create modal
+  $("#createCategoryModal").on("hidden.bs.modal", function (e) {
+    $("#category-name").val("");
+    $("#category-description").val("");
+  });
+});
+
+// function get all data
+const getAllDataCategories = () => {
   $.ajax({
     url: "/api/category",
     method: "GET",
@@ -47,13 +59,7 @@ $(document).ready(function () {
       });
     },
   });
-
-  // empty input create modal
-  $("#createCategoryModal").on("hidden.bs.modal", function (e) {
-    $("#category-name").val("");
-    $("#category-description").val("");
-  });
-});
+};
 
 // tambah kategori
 $("#create-category").click((e) => {
@@ -71,9 +77,8 @@ $("#create-category").click((e) => {
       name: valueName,
       description: valueDescription,
     }),
-    success: (res) => {
-      // add element
-      updateCard(res);
+    success: () => {
+      getAllDataCategories();
 
       $("#createCategoryModal").modal("hide");
       Swal.fire({
@@ -96,49 +101,6 @@ $("#create-category").click((e) => {
     },
   });
 });
-// function update card
-const updateCard = (res) => {
-  $("#contentMenu").append(`
-  <div class="card my-3">
-    <div class="card-header bg-dark d-flex gap-3 align-items-center text-white">
-      <span class="id-kategori p-2 rounded">#${res.id}</span>
-      <span class="title-card">${res.name}</span>
-    </div>
-    <div class="card-body">
-      <p class="card-text">${res.description}</p>
-      <!-- Button trigger modal update -->
-      <button
-        type="button"
-        class="btn btn-outline-warning btn-sm"
-        data-bs-toggle="modal"
-        data-bs-target="#updateCategoryModal"
-        onclick="updateCategory(${res.id})"
-        title="edit"
-      >
-        Edit
-        <i class="bi bi-pencil-square"></i>
-      </button>
-      <!-- Button trigger modal delete -->
-      <button
-        type="button"
-        class="btn btn-outline-danger btn-sm"
-        data-bs-toggle="modal"
-        data-bs-target="#deleteCategoryModal"
-        onclick="deleteCategory(${res.id})"
-        title="delete"
-      >
-        Delete
-        <i class="bi bi-trash"></i>
-      </button>
-    </div>
-  </div>
-  `);
-
-  // update total data
-  const totalData = $("#totalDataKategori").text();
-  const total = parseInt(totalData) + 1;
-  $("#totalDataKategori").text(total);
-};
 
 // edit kategori
 function updateCategory(id) {
