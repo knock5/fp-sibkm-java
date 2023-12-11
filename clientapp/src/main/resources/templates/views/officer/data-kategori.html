@@ -47,14 +47,14 @@
       >
         <div class="modal-dialog">
           <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="createModalLabel">Tambah Kategori</h1>
+            <div class="modal-header bg-dark-subtle">
+              <h1 class="modal-title fs-5 text-light" id="createModalLabel">Tambah Kategori</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
               <form>
                 <div class="modal-body">
                   <div class="input-group my-2">
-                    <span class="input-group-text fw-bold bg-warning-subtle" id="c-name">Name</span>
+                    <span class="input-group-text fw-bold bg-warning" id="c-name">Name</span>
                     <input 
                       type="text"
                       class="form-control"
@@ -65,15 +65,16 @@
                     />
                   </div>
                   <div class="input-group my-2">
-                    <span class="input-group-text fw-bold bg-warning-subtle" id="c-deskripsi">Deskripsi</span>
-                    <input 
-                      type="text"
-                      class="form-control"
-                      aria-label="Sizing example input"
-                      aria-describedby="c-deskripsi"
+                    <span class="input-group-text fw-bold bg-warning" id="c-deskripsi">Deskripsi</span><br>
+                    <textarea
+                      class="border border-secondary" 
+                      name="deskripsi"
+                      rows="5"
+                      cols="70"
                       id="category-description"
                       required
-                    />
+                    >
+                    </textarea>
                   </div>
                 </div>
                 <div class="modal-footer">

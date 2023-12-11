@@ -55,8 +55,8 @@ $("#create-category").click((event) => {
 
   let valueName = $("#category-name").val();
   let valueDescript = $("#category-description").val();
-  // console.log(valueName);
-  // console.log(valueDescript);
+  console.log(valueName);
+  console.log(valueDescript);
 
   $.ajax({
     method: "POST",
@@ -71,7 +71,7 @@ $("#create-category").click((event) => {
     success: (res) => {
       // console.log(res);
       $("#createCategoryModal").modal("hide");
-      $("#contentMenu").DataTable().ajax.reload();
+      $("#contentMenu").ajax.reload();
       Swal.fire({
         position: "center",
         icon: "success",
@@ -132,7 +132,7 @@ $("#update-category").click((event) => {
     success: (res) => {
       // console.log(res);
       $("#updateCategoryModal").modal("hide");
-      $("#contentMenu").DataTable().ajax.reload();
+      $("#contentMenu").ajax.reload();
       Swal.fire({
         position: "center",
         icon: "success",
@@ -179,7 +179,7 @@ function deleteCategory(id) {
             text: "Kategori anda berhasil dihapus.",
             icon: "success"
           });
-          $("#contentMenu").DataTable().ajax.reload();
+          // $("#contentMenu").DataTable().ajax.reload();
         },
         error: (err) => {
           console.error(err);
