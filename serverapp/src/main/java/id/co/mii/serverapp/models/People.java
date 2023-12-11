@@ -25,7 +25,7 @@ public class People {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name = "people_id", length = 30)
+  @Column(name = "people_id")
   private Integer id;
 
   @Column(nullable = false, unique = true, length = 100)
@@ -43,7 +43,7 @@ public class People {
   @Column(nullable = false, unique = true, length = 12)
   private String phone;
 
-  @Column(length = 20)
+  @Column(length = 50)
   private String job;
 
   @Column(length = 255)

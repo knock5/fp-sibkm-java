@@ -23,7 +23,7 @@ public class Privilege {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name = "privilege_id", length = 30)
+  @Column(name = "privilege_id")
   private Integer id;
 
   @Column(name = "privilege_name", length = 20, nullable = false)
