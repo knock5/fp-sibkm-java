@@ -83,8 +83,6 @@ $("#create-category").click((e) => {
         showConfirmButton: false,
         timer: 2000,
       });
-      $("#category-name").val("");
-      $("#category-description").val("");
     },
     error: (err) => {
       console.log(err);
