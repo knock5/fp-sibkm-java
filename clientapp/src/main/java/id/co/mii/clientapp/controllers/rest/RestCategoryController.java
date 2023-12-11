@@ -25,6 +25,11 @@ public class RestCategoryController {
     return categoryService.getAll();
   }
 
+  @GetMapping("/{id}")
+  public Category getById(@PathVariable("id") Integer id) {
+    return categoryService.getById(id);
+  }
+
   @PostMapping
   public Category create(@RequestBody Category category) {
     return categoryService.create(category);

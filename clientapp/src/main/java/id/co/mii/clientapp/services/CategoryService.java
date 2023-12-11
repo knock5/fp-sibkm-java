@@ -44,7 +44,7 @@ public class CategoryService {
   public Category getById(Integer id) {
     return restTemplate
       .exchange(
-        url.concat("/" + id), 
+        url.concat("/" + id),
         HttpMethod.GET,
         null,
         Category.class
