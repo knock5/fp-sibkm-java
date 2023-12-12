@@ -1,6 +1,7 @@
 package id.co.mii.clientapp.services;
 
 import id.co.mii.clientapp.models.Complaint;
+import id.co.mii.clientapp.models.dto.request.ComplaintRequest;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -36,15 +37,32 @@ public class ComplaintService {
       .getBody();
   }
 
-  public Complaint create(Complaint complaint) {
+  public Complaint create(ComplaintRequest complaintRequest) {
     return restTemplate
-      .exchange(url, HttpMethod.POST, new HttpEntity<>(complaint), Complaint.class)
+      .exchange(
+        url,
+        HttpMethod.POST,
+        new HttpEntity<>(complaintRequest),
+        Complaint.class
+      )
       .getBody();
   }
-  
+
   public Complaint delete(Integer id) {
     return restTemplate
       .exchange(url.concat("/" + id), HttpMethod.DELETE, null, Complaint.class)
+      .getBody();
+  }
+
+  // get complaint not resolved
+  public List<Complaint> findAllComplaintActive() {
+    return restTemplate
+      .exchange(
+        url.concat("/active"),
+        HttpMethod.GET,
+        null,
+        new ParameterizedTypeReference<List<Complaint>>() {}
+      )
       .getBody();
   }
 }

@@ -15,6 +15,21 @@
         >
           <a th:href="@{/o-dashboard}" class="btn btn-warning">Kembali</a>
           <h1>Data Pengaduan</h1>
+          <a th:href="@{/fu-complaint}" class="btn btn-success"
+            ><i class="bi bi-send-check"></i> Buat Tanggapan</a
+          >
+
+          <!-- Button trigger create modal
+          <button
+            type="button"
+            class="btn btn-info btn-sm"
+            data-bs-toggle="modal"
+            data-bs-target="#fuComplaintModal"
+            id="btnCreateFollowUp"
+            title="follow up"
+          >
+            <i class="bi bi-send-check"></i> Buat Tanggapan
+          </button> -->
         </div>
       </div>
 
@@ -86,7 +101,9 @@
                     </tr>
                     <tr>
                       <th class="col-4 table-info">Status</th>
-                      <td class="col-8" id="complaintStatusDetail"></td>
+                      <td class="col-8">
+                        <span id="complaintStatusDetail" class="badge"></span>
+                      </td>
                     </tr>
                     <tr>
                       <th class="col-4 table-info">Kategori</th>
@@ -129,6 +146,156 @@
                 Tutup
               </button>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Create Follow Up
+      <div
+        class="modal fade"
+        id="fuComplaintModal"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1
+                class="modal-title fs-3 fw-bold m-auto"
+                id="staticBackdropLabel"
+              >
+                Buat Follow Up Pengaduan
+              </h1>
+            </div>
+            <form>
+              <div class="modal-body">
+                <div class="py-3">
+                  <div class="mb-3">
+                    <label for="fuNotes" class="form-label"
+                      >Catatan Follow Up</label
+                    >
+                    <textarea
+                      class="form-control"
+                      id="fuNotes"
+                      name="followUpNotes"
+                      rows="4"
+                      required
+                    ></textarea>
+                  </div>
+                  <div class="mb-3">
+                    <label for="fuComplaintId" class="form-label"
+                      >ID Pengaduan</label
+                    >
+                    <select
+                      class="form-select"
+                      aria-label="Default select example"
+                      id="fuComplaintId"
+                    >
+                      <option
+                        value=""
+                        id="defaultSelectedIdTarget"
+                        selected
+                        hidden
+                      ></option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="id-petugas">ID Petugas</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="fuOfficerId"
+                      name="officerId"
+                      required
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="id-status-pengaduan">ID Status Pengaduan</label>
+                    <select
+                      class="form-select"
+                      aria-label="Default select example"
+                      id="fuStatusId"
+                    >
+                      <option
+                        value=""
+                        id="defaultSelectedStatus"
+                        selected
+                        hidden
+                      ></option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-outline-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Batal
+                </button>
+                <button
+                  type="submit"
+                  class="btn btn-success"
+                  id="createFollowUp"
+                >
+                  Kirim
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- Modal delete -->
+      <div
+        class="modal fade"
+        id="deleteComplaintModal"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1
+                class="modal-title fs-3 fw-bold m-auto"
+                id="staticBackdropLabel"
+              >
+                Informasi
+              </h1>
+            </div>
+            <form>
+              <div class="modal-body">
+                <div class="my-3 d-flex justify-content-center">
+                  <input type="text" id="delete-id" hidden />
+                  <h4 class="fs-6 fw-bold">
+                    Apakah Anda yakin ingin menghapus pengaduan ini?
+                  </h4>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-bs-dismiss="modal"
+                >
+                  Batal
+                </button>
+                <button
+                  type="submit"
+                  id="delete-complaint"
+                  class="btn btn-outline-danger fw-bold"
+                >
+                  Iya, Hapus!
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>

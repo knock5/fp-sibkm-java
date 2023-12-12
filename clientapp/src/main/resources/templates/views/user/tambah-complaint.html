@@ -15,6 +15,7 @@
   <body>
     <!-- content -->
     <section class="container-fluid p-3 wrapper" layout:fragment="content">
+<<<<<<< HEAD
         <div class="container">
             <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
                 <a th:href="@{/u-dashboard}" class="btn btn-warning">Kembali</a>
@@ -121,7 +122,136 @@
                     </div>
                 </form>
             </div>
+=======
+      <div class="container">
+        <div
+          class="d-flex justify-content-between align-items-center flex-wrap gap-3"
+        >
+          <a th:href="@{/u-dashboard}" class="btn btn-warning">Kembali</a>
+          <h1>Buat Pengaduan</h1>
+>>>>>>> 8b8938770c2746b824585625713719098f2cdd75
         </div>
+        <div class="p-3">
+          <form>
+            <div class="row mt-2 mb-3">
+              <div class="col-md-3">
+                <span
+                  class="input-group-text fw-bold bg-dark-subtle border border-dark-subtle"
+                  id="c-id"
+                  >Masukan Id Anda</span
+                >
+              </div>
+              <div class="col-md-9">
+                <input
+                  type="text"
+                  aria-label="Sizing example input"
+                  aria-describedby="c-id"
+                  id="people-complaint"
+                  class="form-control border border-dark-subtle"
+                  required
+                />
+              </div>
+            </div>
+            <!-- <div class="row mt-2 mb-3">
+              <div class="col-md-3">
+                <span
+                  class="input-group-text fw-bold bg-dark-subtle border border-dark-subtle"
+                  id="c-date"
+                  >Tanggal</span
+                >
+              </div>
+              <div class="col-md-9">
+                <input
+                  type="text"
+                  aria-label="Sizing example input"
+                  aria-describedby="c-date"
+                  id="date-complaint"
+                  class="form-control border border-dark-subtle"
+                  required
+                />
+              </div>
+            </div> -->
+            <div class="row mt-2 mb-3">
+              <div class="col-md-3">
+                <span
+                  class="input-group-text fw-bold bg-dark-subtle"
+                  id="kategori"
+                  >Pilih Kategori</span
+                >
+              </div>
+              <div class="col-md-9">
+                <select
+                  class="form-select"
+                  aria-label="Default select example"
+                  aria-describedby="kategori"
+                  id="kategori-complaint"
+                  required
+                >
+                  <option value="" selected hidden>Pilih Kategori</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-2 mb-3">
+              <div class="col-md-3">
+                <span
+                  class="input-group-text fw-bold bg-dark-subtle px-2"
+                  id="title"
+                  >Judul Pengaduan</span
+                >
+              </div>
+              <div class="col-md-9">
+                <input
+                  type="text"
+                  aria-label="Sizing example input"
+                  aria-describedby="title"
+                  id="title-complaint"
+                  class="form-control border border-dark-subtle"
+                  required
+                />
+              </div>
+            </div>
+            <div class="mt-2 mb-3">
+              <span class="input-group-text fw-bold bg-dark-subtle"
+                >Tulis Laporan</span
+              >
+              <textarea
+                class="form-control border border-dark-subtle"
+                rows="4"
+                id="laporan"
+                placeholder="Tulis laporan disini.."
+              >
+              </textarea>
+            </div>
+            <div class="row">
+              <div class="col">
+                <span
+                  class="input-group-text fw-bold bg-dark-subtle border"
+                  id="bukti"
+                  >Bukti</span
+                >
+                <input
+                  type="text"
+                  aria-label="Sizing example input"
+                  aria-describedby="bukti"
+                  id="bukti-complaint"
+                  class="form-control border border-dark-subtle"
+                  placeholder="Bagikan link gambar..."
+                  required
+                />
+              </div>
+            </div>
+            <div class="py-3">
+              <button
+                id="create-complaint"
+                type="submit"
+                class="btn btn-success"
+              >
+                Kirim
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
     </section>
 
     <script>
@@ -133,7 +263,11 @@
     </script>
 
     <div layout:fragment="js">
+<<<<<<< HEAD
         <script th:src="@{/js/users/complaint.js}"></script>
+=======
+      <script th:src="@{/js/users/complaint.js}"></script>
+>>>>>>> 8b8938770c2746b824585625713719098f2cdd75
     </div>
   </body>
 </html>
