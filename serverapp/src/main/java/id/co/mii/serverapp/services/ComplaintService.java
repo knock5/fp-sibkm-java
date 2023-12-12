@@ -55,4 +55,9 @@ public class ComplaintService {
     complaintRepository.delete(complaint);
     return complaint;
   }
+
+  // get complaint not resolved
+  public List<Complaint> findAllByStatusName() {
+    return complaintRepository.findAllByStatusNameNotSelesai();
+  }
 }

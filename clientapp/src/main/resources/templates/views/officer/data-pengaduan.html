@@ -15,6 +15,21 @@
         >
           <a th:href="@{/o-dashboard}" class="btn btn-warning">Kembali</a>
           <h1>Data Pengaduan</h1>
+          <a th:href="@{/fu-complaint}" class="btn btn-success"
+            ><i class="bi bi-send-check"></i> Buat Tanggapan</a
+          >
+
+          <!-- Button trigger create modal
+          <button
+            type="button"
+            class="btn btn-info btn-sm"
+            data-bs-toggle="modal"
+            data-bs-target="#fuComplaintModal"
+            id="btnCreateFollowUp"
+            title="follow up"
+          >
+            <i class="bi bi-send-check"></i> Buat Tanggapan
+          </button> -->
         </div>
       </div>
 
@@ -86,7 +101,9 @@
                     </tr>
                     <tr>
                       <th class="col-4 table-info">Status</th>
-                      <td class="col-8" id="complaintStatusDetail"></td>
+                      <td class="col-8">
+                        <span id="complaintStatusDetail" class="badge"></span>
+                      </td>
                     </tr>
                     <tr>
                       <th class="col-4 table-info">Kategori</th>
@@ -133,7 +150,7 @@
         </div>
       </div>
 
-      <!-- Modal Konfirmasi Follow Up -->
+      <!-- Modal Create Follow Up
       <div
         class="modal fade"
         id="fuComplaintModal"
@@ -150,52 +167,88 @@
                 class="modal-title fs-3 fw-bold m-auto"
                 id="staticBackdropLabel"
               >
-                Informasi
+                Buat Follow Up Pengaduan
               </h1>
             </div>
-            <div class="modal-body">
-              <div class="my-3 d-flex flex-column align-items-center">
-                <h4 class="fs-6 fw-bold">
-                  Anda ingin melakukan follow up pada pengaduan ini?
-                </h4>
-
-                <div class="my-3">
-                  <table class="table table-bordered table-warning">
-                    <tbody>
-                      <tr>
-                        <th class="col-4 table-info">ID Pengaduan</th>
-                        <td class="col-8" id="idComplaintModal"></td>
-                      </tr>
-                      <tr>
-                        <th class="col-4 table-info">Judul Pengaduan</th>
-                        <td class="col-8" id="titleComplaintModal"></td>
-                      </tr>
-                      <tr>
-                        <th class="col-4 table-info">Status Pengaduan</th>
-                        <td class="col-8" id="statusComplaintModal"></td>
-                      </tr>
-                    </tbody>
-                  </table>
+            <form>
+              <div class="modal-body">
+                <div class="py-3">
+                  <div class="mb-3">
+                    <label for="fuNotes" class="form-label"
+                      >Catatan Follow Up</label
+                    >
+                    <textarea
+                      class="form-control"
+                      id="fuNotes"
+                      name="followUpNotes"
+                      rows="4"
+                      required
+                    ></textarea>
+                  </div>
+                  <div class="mb-3">
+                    <label for="fuComplaintId" class="form-label"
+                      >ID Pengaduan</label
+                    >
+                    <select
+                      class="form-select"
+                      aria-label="Default select example"
+                      id="fuComplaintId"
+                    >
+                      <option
+                        value=""
+                        id="defaultSelectedIdTarget"
+                        selected
+                        hidden
+                      ></option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="id-petugas">ID Petugas</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="fuOfficerId"
+                      name="officerId"
+                      required
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="id-status-pengaduan">ID Status Pengaduan</label>
+                    <select
+                      class="form-select"
+                      aria-label="Default select example"
+                      id="fuStatusId"
+                    >
+                      <option
+                        value=""
+                        id="defaultSelectedStatus"
+                        selected
+                        hidden
+                      ></option>
+                    </select>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-outline-secondary"
-                data-bs-dismiss="modal"
-              >
-                Batal
-              </button>
-              <button class="btn btn-success">
-                <a th:href="@{/fu-complaint}" class="link-modal text-white">
-                  Iya, Follow Up!
-                </a>
-              </button>
-            </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-outline-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Batal
+                </button>
+                <button
+                  type="submit"
+                  class="btn btn-success"
+                  id="createFollowUp"
+                >
+                  Kirim
+                </button>
+              </div>
+            </form>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- Modal delete -->
       <div
