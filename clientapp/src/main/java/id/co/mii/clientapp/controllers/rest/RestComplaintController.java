@@ -38,4 +38,10 @@ public class RestComplaintController {
   public Complaint delete(@PathVariable Integer id) {
     return complaintService.delete(id);
   }
+
+  // get complaint not resolved
+  @GetMapping("/active")
+  public List<Complaint> findAllComplaintActive() {
+    return complaintService.findAllComplaintActive();
+  }
 }

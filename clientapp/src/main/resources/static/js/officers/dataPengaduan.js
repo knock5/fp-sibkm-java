@@ -44,17 +44,6 @@ $(document).ready(function () {
               >
                 <i class="bi bi-info-circle"></i>
               </button>
-              <!-- Button trigger modal follow up -->
-              <button
-                type="button"
-                class="btn btn-primary btn-sm"
-                data-bs-toggle="modal"
-                data-bs-target="#fuComplaintModal"
-                onclick="followUpComplaint(${data.id})"
-                title="follow up"
-              >
-                <i class="bi bi-send-check"></i>
-              </button>
               <!-- Button trigger modal delete -->
               <button
                 type="button"
@@ -85,6 +74,7 @@ const detailComplaint = (id) => {
       $("#complaintAttachmentDetail").attr("href", data.attachment);
       $("#complaintBodyDetail").text(data.body);
       $("#complaintStatusDetail").text(data.status.name);
+      $("#complaintStatusDetail").addClass(data.status.name);
       $("#complaintCategoryDetail").text(data.category.name);
       $("#namePeopleDetail").text(data.people.name);
       $("#nikPeopleDetail").text(data.people.nik);
@@ -96,14 +86,76 @@ const detailComplaint = (id) => {
   });
 };
 
-const followUpComplaint = (id) => {
+$("#btnCreateFollowUp").click(function () {
   $.ajax({
-    url: `${urlPengaduan}/${id}`,
+    url: `${urlPengaduan}/active`,
     method: "GET",
     success: (data) => {
-      $("#idComplaintModal").text(data.id);
-      $("#titleComplaintModal").text(data.title);
-      $("#statusComplaintModal").text(data.status.name);
+      data.forEach((complaint) => {
+        $("#fuComplaintId").append(
+          `<option value="${complaint.id}">${complaint.title} - ${complaint.id}</option>`
+        );
+      });
     },
   });
-};
+
+  $.ajax({
+    url: "api/status",
+    method: "GET",
+    success: (data) => {
+      data.forEach((status) => {
+        $("#fuStatusId").append(
+          `<option value="${status.id}">${status.name}</option>`
+        );
+      });
+    },
+  });
+});
+
+$("#createFollowUp").click(function (event) {
+  event.preventDefault();
+
+  // current date
+  const date = new Date().toISOString().substring(0, 10);
+  const note = $("#fuNotes").val();
+  const complaintId = $("#fuComplaintId").val();
+  const officerId = $("#fuOfficerId").val();
+  const statusId = $("#fuStatusId").val();
+
+  $.ajax({
+    url: "api/followUp",
+    method: "POST",
+    dataType: "JSON",
+    contentType: "application/json",
+    data: JSON.stringify({
+      followUpDate: date,
+      followUpNotes: note,
+      complaintId: complaintId,
+      officerId: officerId,
+      statusId: statusId,
+    }),
+    success: (res) => {
+      console.log(res);
+
+      swal.fire({
+        title: "Success!",
+        text: "Follow Up berhasil terbuat!",
+        icon: "success",
+        confirmButtonText: "OK",
+      });
+
+      $("#fuDate").val("");
+      $("#fuNotes").val("");
+      $("#fuComplaintId").val("");
+      $("#fuOfficerId").val("");
+    },
+    error: () => {
+      swal.fire({
+        title: "Error!",
+        text: "Follow Up gagal terbuat!",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+    },
+  });
+});

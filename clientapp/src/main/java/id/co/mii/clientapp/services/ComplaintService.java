@@ -38,13 +38,30 @@ public class ComplaintService {
 
   public Complaint create(Complaint complaint) {
     return restTemplate
-      .exchange(url, HttpMethod.POST, new HttpEntity<>(complaint), Complaint.class)
+      .exchange(
+        url,
+        HttpMethod.POST,
+        new HttpEntity<>(complaint),
+        Complaint.class
+      )
       .getBody();
   }
-  
+
   public Complaint delete(Integer id) {
     return restTemplate
       .exchange(url.concat("/" + id), HttpMethod.DELETE, null, Complaint.class)
+      .getBody();
+  }
+
+  // get complaint not resolved
+  public List<Complaint> findAllComplaintActive() {
+    return restTemplate
+      .exchange(
+        url.concat("/active"),
+        HttpMethod.GET,
+        null,
+        new ParameterizedTypeReference<List<Complaint>>() {}
+      )
       .getBody();
   }
 }
