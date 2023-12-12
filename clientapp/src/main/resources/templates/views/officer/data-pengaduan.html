@@ -132,6 +132,120 @@
           </div>
         </div>
       </div>
+
+      <!-- Modal Konfirmasi Follow Up -->
+      <div
+        class="modal fade"
+        id="fuComplaintModal"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1
+                class="modal-title fs-3 fw-bold m-auto"
+                id="staticBackdropLabel"
+              >
+                Informasi
+              </h1>
+            </div>
+            <div class="modal-body">
+              <div class="my-3 d-flex flex-column align-items-center">
+                <h4 class="fs-6 fw-bold">
+                  Anda ingin melakukan follow up pada pengaduan ini?
+                </h4>
+
+                <div class="my-3">
+                  <table class="table table-bordered table-warning">
+                    <tbody>
+                      <tr>
+                        <th class="col-4 table-info">ID Pengaduan</th>
+                        <td class="col-8" id="idComplaintModal"></td>
+                      </tr>
+                      <tr>
+                        <th class="col-4 table-info">Judul Pengaduan</th>
+                        <td class="col-8" id="titleComplaintModal"></td>
+                      </tr>
+                      <tr>
+                        <th class="col-4 table-info">Status Pengaduan</th>
+                        <td class="col-8" id="statusComplaintModal"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-outline-secondary"
+                data-bs-dismiss="modal"
+              >
+                Batal
+              </button>
+              <button class="btn btn-success">
+                <a th:href="@{/fu-complaint}" class="link-modal text-white">
+                  Iya, Follow Up!
+                </a>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal delete -->
+      <div
+        class="modal fade"
+        id="deleteComplaintModal"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1
+                class="modal-title fs-3 fw-bold m-auto"
+                id="staticBackdropLabel"
+              >
+                Informasi
+              </h1>
+            </div>
+            <form>
+              <div class="modal-body">
+                <div class="my-3 d-flex justify-content-center">
+                  <input type="text" id="delete-id" hidden />
+                  <h4 class="fs-6 fw-bold">
+                    Apakah Anda yakin ingin menghapus pengaduan ini?
+                  </h4>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-bs-dismiss="modal"
+                >
+                  Batal
+                </button>
+                <button
+                  type="submit"
+                  id="delete-complaint"
+                  class="btn btn-outline-danger fw-bold"
+                >
+                  Iya, Hapus!
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </section>
 
     <div layout:fragment="js">
