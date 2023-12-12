@@ -1,6 +1,7 @@
 package id.co.mii.clientapp.controllers.rest;
 
 import id.co.mii.clientapp.models.Complaint;
+import id.co.mii.clientapp.models.dto.request.ComplaintRequest;
 import id.co.mii.clientapp.services.ComplaintService;
 import java.util.List;
 import lombok.AllArgsConstructor;
@@ -30,8 +31,8 @@ public class RestComplaintController {
   }
 
   @PostMapping
-  public Complaint create(@RequestBody Complaint complaint) {
-    return complaintService.create(complaint);
+  public Complaint create(@RequestBody ComplaintRequest complaintRequest) {
+    return complaintService.create(complaintRequest);
   }
 
   @DeleteMapping("/{id}")
