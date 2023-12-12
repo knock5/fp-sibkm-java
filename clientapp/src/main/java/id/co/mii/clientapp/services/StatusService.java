@@ -1,6 +1,5 @@
 package id.co.mii.clientapp.services;
 
-import id.co.mii.clientapp.models.Role;
 import id.co.mii.clientapp.models.Status;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
