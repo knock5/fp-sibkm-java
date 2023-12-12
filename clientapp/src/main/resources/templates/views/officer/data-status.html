@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layouts/main.html}"
+>
+  <head>
+    <title th:text="${title}"></title>
+  </head>
+  <body>
+    <!-- content -->
+    <section class="container-fluid p-3 wrapper" layout:fragment="content">
+      <div class="container">
+        <div
+          class="d-flex justify-content-between align-items-center flex-wrap gap-3"
+        >
+          <a th:href="@{/o-dashboard}" class="btn btn-warning">Kembali</a>
+          <h1>Data Status</h1>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-center align-items-center pt-3 gap-3">
+        <h3>Total Data: <span id="totalDataStatus"></span></h3>
+        <!-- Button trigger modal create -->
+        <button
+          type="button"
+          class="btn btn-outline-success btn-sm"
+          data-bs-toggle="modal"
+          data-bs-target="#createStatusModal"
+          title="add"
+        >
+          Tambah Status
+          <i class="bi bi-plus-circle"></i>
+        </button>
+      </div>
+
+      <div class="container mt-3" id="contentMenu"></div>
+
+      <!-- Modal create -->
+      <div 
+        class="modal fade" 
+        id="createStatusModal"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false" 
+        tabindex="-1" 
+        aria-labelledby="createModalLabel" 
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header bg-dark-subtle">
+              <h1 class="modal-title fs-5 text-light" id="createModalLabel">Tambah Status</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+              <form>
+                <div class="modal-body">
+                  <div class="input-group my-2">
+                    <span class="input-group-text fw-bold bg-warning" id="c-name">Status</span>
+                    <input 
+                      type="text"
+                      class="form-control"
+                      aria-label="Sizing example input"
+                      aria-describedby="c-name"
+                      id="status-name"
+                      required
+                    />
+                  </div>
+                  <!-- <div class="input-group my-2">
+                    <span class="input-group-text fw-bold bg-warning" id="c-deskripsi">Deskripsi</span><br>
+                    <textarea
+                      class="border border-secondary" 
+                      name="deskripsi"
+                      rows="5"
+                      cols="70"
+                      id="category-description"
+                      required
+                    >
+                    </textarea>
+                  </div> -->
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                    Kembali
+                  </button>
+                  <button id="create-status" type="submit" class="btn btn-outline-success">
+                    Simpan
+                  </button>
+                </div>
+              </form>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Modal Edit Kategori -->
+      <div
+        class="modal fade"
+        id="updateStatusModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="updateModalLabel">Edit Status</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+              <form>
+                <div class="modal-body">
+                  <div class="input-group my-2">
+                    <span class="input-group-text fw-bold bg-warning-subtle" id="u-name">Status</span>
+                    <input 
+                      type="text"
+                      class="form-control"
+                      aria-label="Sizing example input"
+                      aria-describedby="u-name"
+                      id="update-status"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                    Kembali
+                  </button>
+                  <button id="update-status" type="submit" class="btn btn-outline-success">
+                    Simpan
+                  </button>
+                </div>
+              </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div layout:fragment="js">
+      <script th:src="@{/js/officers/dataStatus.js}"></script>
+    </div>
+  </body>
+</html>

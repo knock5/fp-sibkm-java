@@ -198,14 +198,4 @@ function deleteCategory(id) {
   });
 };
 
-const updateCategory = (id) => {
-  $.ajax({
-    url: `/api/category/${id}`,
-    method: "GET",
-    dataType: "JSON",
-    success: (res) => {
-      $("#idCategoryUpdate").val(res.id);
-      $("#nameCategory").val(res.name);
-    },
-  });
-};
+
