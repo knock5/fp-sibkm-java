@@ -30,4 +30,12 @@ public class CardMenuOfficerController {
 
     return "views/officer/data-kategori";
   }
+
+  @GetMapping("/fu-complaint")
+  public String fuComplaintPage(Model model) {
+    model.addAttribute("title", "LaporYuk - Follow Up Pengaduan");
+    model.addAttribute("isActive", "o-dashboard");
+
+    return "views/officer/fu-complaint";
+  }
 }

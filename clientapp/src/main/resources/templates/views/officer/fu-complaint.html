@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layouts/main.html}"
+>
+  <head>
+    <title th:text="${title}"></title>
+  </head>
+  <body>
+    <!-- content -->
+    <section class="container-fluid p-3 wrapper" layout:fragment="content">
+      <div class="container">
+        <div
+          class="d-flex justify-content-between align-items-center flex-wrap gap-3"
+        >
+          <a th:href="@{/o-dashboard}" class="btn btn-warning">Kembali</a>
+          <h1>Form Follow Up</h1>
+        </div>
+      </div>
+
+      <div class="container py-4"></div>
+    </section>
+
+    <div layout:fragment="js">
+      <script th:src="@{/js/officers/dataFollowUp.js}"></script>
+    </div>
+  </body>
+</html>

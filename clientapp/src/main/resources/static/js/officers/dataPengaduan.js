@@ -50,7 +50,7 @@ $(document).ready(function () {
                 class="btn btn-primary btn-sm"
                 data-bs-toggle="modal"
                 data-bs-target="#fuComplaintModal"
-                onclick="fuComplaint(${data.id})"
+                onclick="followUpComplaint(${data.id})"
                 title="follow up"
               >
                 <i class="bi bi-send-check"></i>
@@ -92,6 +92,18 @@ const detailComplaint = (id) => {
       $("#phonePeopleDetail").text(data.people.phone);
       $("#addressPeopleDetail").text(data.people.address);
       $("#jobPeopleDetail").text(data.people.job);
+    },
+  });
+};
+
+const followUpComplaint = (id) => {
+  $.ajax({
+    url: `${urlPengaduan}/${id}`,
+    method: "GET",
+    success: (data) => {
+      $("#idComplaintModal").text(data.id);
+      $("#titleComplaintModal").text(data.title);
+      $("#statusComplaintModal").text(data.status.name);
     },
   });
 };

@@ -144,6 +144,9 @@
 }
 
 /* custom card dashboard officer */
+.link-modal {
+  text-decoration: none;
+}
 .wrap-card {
   display: flex;
   justify-content: center;
