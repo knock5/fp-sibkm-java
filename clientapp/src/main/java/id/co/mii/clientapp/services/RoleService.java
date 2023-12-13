@@ -1,6 +1,8 @@
 package id.co.mii.clientapp.services;
 
 import id.co.mii.clientapp.models.Role;
+
+
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -27,6 +29,12 @@ public class RoleService {
         null,
         new ParameterizedTypeReference<List<Role>>() {}
       )
+      .getBody();
+  }
+
+  public Role create(Role role) {
+    return restTemplate
+      .exchange(url, HttpMethod.POST, new HttpEntity<>(role), Role.class)
       .getBody();
   }
 
