@@ -48,7 +48,7 @@ $("#create-complaint").click((event) => {
       body: valueBody,
       attachment: valueBukti,
       date: valueDate,
-      catgoryId: valueCategory,
+      categoryId: valueCategory,
       peopleId: valuePeople,
     }),
     success: (res) => {

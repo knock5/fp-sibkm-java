@@ -25,6 +25,45 @@ public class ComplaintService {
   }
 
   public Complaint createDTO(ComplaintRequest complaintRequest) {
+    if (
+      complaintRequest.getTitle() == null ||
+      complaintRequest.getTitle().isEmpty()
+    ) {
+      throw new ResponseStatusException(
+        HttpStatus.BAD_REQUEST,
+        "Title tidak boleh kosong"
+      );
+    }
+
+    if (
+      complaintRequest.getBody() == null || complaintRequest.getBody().isEmpty()
+    ) {
+      throw new ResponseStatusException(
+        HttpStatus.BAD_REQUEST,
+        "Body tidak boleh kosong"
+      );
+    }
+
+    if (
+      complaintRequest.getCategoryId() == null ||
+      complaintRequest.getCategoryId() == 0
+    ) {
+      throw new ResponseStatusException(
+        HttpStatus.BAD_REQUEST,
+        "Category Id tidak boleh kosong"
+      );
+    }
+
+    if (
+      complaintRequest.getPeopleId() == null ||
+      complaintRequest.getPeopleId() == 0
+    ) {
+      throw new ResponseStatusException(
+        HttpStatus.BAD_REQUEST,
+        "People Id tidak boleh kosong"
+      );
+    }
+
     Complaint complaint = modelMapper.map(complaintRequest, Complaint.class);
 
     complaint.setStatus(statusService.getById(4));
