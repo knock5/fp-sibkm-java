@@ -197,9 +197,6 @@ const deleteCategory = (id) => {
   });
 };
 
-<<<<<<< HEAD
-
-=======
 $("#delete-category").click((event) => {
   event.preventDefault();
 
@@ -233,4 +230,3 @@ $("#delete-category").click((event) => {
     },
   });
 });
->>>>>>> 8b8938770c2746b824585625713719098f2cdd75

@@ -30,7 +30,7 @@ public class RestFollowUpController {
     return followUpService.getById(id);
   }
 
-  @PostMapping
+  @PostMapping(consumes = { "application/json" })
   public FollowUp create(@RequestBody FollowUpRequest followUpRequest) {
     return followUpService.create(followUpRequest);
   }

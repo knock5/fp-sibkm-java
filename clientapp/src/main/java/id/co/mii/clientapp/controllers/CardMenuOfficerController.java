@@ -31,20 +31,19 @@ public class CardMenuOfficerController {
     return "views/officer/data-kategori";
   }
 
-<<<<<<< HEAD
   @GetMapping("/data-status")
-  public String dataStatus(Model model){
+  public String dataStatus(Model model) {
     model.addAttribute("title", "LaporYuk - Data Status");
     model.addAttribute("isActive", "o-dashboard");
 
     return "views/officer/data-status";
-=======
+  }
+
   @GetMapping("/fu-complaint")
   public String fuComplaintPage(Model model) {
     model.addAttribute("title", "LaporYuk - Follow Up Pengaduan");
     model.addAttribute("isActive", "o-dashboard");
 
     return "views/officer/fu-complaint";
->>>>>>> 8b8938770c2746b824585625713719098f2cdd75
   }
 }
