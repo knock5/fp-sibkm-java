@@ -30,10 +30,13 @@ $("#create-complaint").click((event) => {
   const valueDate = new Date().toISOString().slice(0, 10);
   const valueCategory = $("#kategori-complaint").val();
   const valuePeople = $("#people-complaint").val();
-  const valueStatus = $("#status-complaint").val();
 
-  console.log(valuePeople);
+  console.log(valueTitle);
+  console.log(valueBody);
+  console.log(valueBukti);
+  console.log(valueDate);
   console.log(valueCategory);
+  console.log(valuePeople);
 
   $.ajax({
     method: "POST",
@@ -47,7 +50,6 @@ $("#create-complaint").click((event) => {
       date: valueDate,
       catgoryId: valueCategory,
       peopleId: valuePeople,
-      statusId: valueStatus,
     }),
     success: (res) => {
       console.log(res);

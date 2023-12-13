@@ -48,6 +48,8 @@ $("#createFollowUp").click(function (event) {
   const officerId = $("#fuOfficerId").val();
   const statusId = $("#fuStatusId").val();
 
+  console.log(date);
+
   $.ajax({
     url: "api/followUp",
     method: "POST",

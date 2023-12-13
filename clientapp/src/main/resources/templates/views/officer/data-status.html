@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layouts/main.html}"
+>
+  <head>
+    <title th:text="${title}"></title>
+  </head>
+  <body>
+    <!-- content -->
+    <section class="container-fluid p-3 wrapper" layout:fragment="content">
+      <div class="container">
+        <div
+          class="d-flex justify-content-between align-items-center flex-wrap gap-3"
+        >
+          <a th:href="@{/o-dashboard}" class="btn btn-warning">Kembali</a>
+          <h1>Data Status</h1>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="my-4">
+          <div>
+            <table
+              id="tableStatus"
+              class="table table-bordered table-striped table-hover"
+            >
+              <thead>
+                <tr class="table-dark">
+                  <th class="col-1 text-center">No</th>
+                  <th class="col-3 text-center">ID Status</th>
+                  <th class="col-5 text-center">Nama Status</th>
+                  <th class="col-5 text-center">Aksi</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div layout:fragment="js">
+      <script th:src="@{/js/officers/dataStatus.js}"></script>
+    </div>
+  </body>
+</html>

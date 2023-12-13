@@ -139,6 +139,16 @@
       </div>
     </section>
 
+    <script>
+      // Tambahkan event listener pada ikon kalender
+      document
+        .getElementById("tanggal-icon")
+        .addEventListener("click", function () {
+          // Di sini, Anda dapat menambahkan logika untuk menampilkan datepicker atau melakukan aksi lainnya
+          $("#datepicker").datepicker("show"); // Contoh untuk datepicker Bootstrap
+        });
+    </script>
+
     <div layout:fragment="js">
       <script th:src="@{/js/users/complaint.js}"></script>
     </div>

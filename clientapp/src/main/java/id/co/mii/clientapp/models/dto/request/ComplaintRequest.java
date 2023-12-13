@@ -20,5 +20,4 @@ public class ComplaintRequest {
 
   private Integer categoryId;
   private Integer peopleId;
-  private Integer statusId;
 }

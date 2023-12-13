@@ -27,7 +27,7 @@ public class ComplaintService {
   public Complaint createDTO(ComplaintRequest complaintRequest) {
     Complaint complaint = modelMapper.map(complaintRequest, Complaint.class);
 
-    complaint.setStatus(statusService.getById(complaintRequest.getStatusId()));
+    complaint.setStatus(statusService.getById(4));
     complaint.setCategory(
       categoryService.getById(complaintRequest.getCategoryId())
     );
