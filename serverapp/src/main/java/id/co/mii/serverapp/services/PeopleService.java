@@ -33,7 +33,15 @@ public class PeopleService {
   public People update(Integer id, People people) {
     getById(id);
     people.setId(id);
+
     return peopleRepository.save(people);
+  }
+
+  public People delete(Integer id) {
+    People people = getById(id);
+    peopleRepository.delete(people);
+
+    return people;
   }
 
   // get people by role name

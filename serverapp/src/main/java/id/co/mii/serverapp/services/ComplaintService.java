@@ -66,7 +66,7 @@ public class ComplaintService {
 
     Complaint complaint = modelMapper.map(complaintRequest, Complaint.class);
 
-    complaint.setStatus(statusService.getById(4));
+    complaint.setStatus(statusService.findByName("terkirim"));
     complaint.setCategory(
       categoryService.getById(complaintRequest.getCategoryId())
     );

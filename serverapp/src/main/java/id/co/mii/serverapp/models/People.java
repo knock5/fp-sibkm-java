@@ -34,7 +34,7 @@ public class People {
   @Column(nullable = false, length = 30)
   private String name;
 
-  @Column(nullable = false, length = 20)
+  @Column(nullable = false, unique = true, length = 20)
   private String email;
 
   @Column(nullable = false, length = 30)

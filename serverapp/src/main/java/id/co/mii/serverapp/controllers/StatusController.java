@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -43,5 +44,11 @@ public class StatusController {
   @DeleteMapping("/{id}")
   public Status delete(@PathVariable Integer id) {
     return statusService.delete(id);
+  }
+
+  // find by name
+  @GetMapping("/find")
+  public Status findByName(@RequestParam(name = "name") String name) {
+    return statusService.findByName(name);
   }
 }
