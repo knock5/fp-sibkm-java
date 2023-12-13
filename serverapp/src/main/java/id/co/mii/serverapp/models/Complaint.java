@@ -32,7 +32,7 @@ public class Complaint {
   @Column(name = "complaint_id")
   private Integer id;
 
-  @Column(name = "complaint_title", length = 20, nullable = false)
+  @Column(name = "complaint_title", length = 35, nullable = false)
   private String title;
 
   @Column(name = "complaint_body", length = 225, nullable = false)
@@ -46,15 +46,15 @@ public class Complaint {
   private Date date;
 
   @ManyToOne
-  @JoinColumn(name = "category_id")
+  @JoinColumn(name = "category_id", nullable = false)
   private Category category;
 
   @ManyToOne
-  @JoinColumn(name = "people_id")
+  @JoinColumn(name = "people_id", nullable = false)
   private People people;
 
   @ManyToOne
-  @JoinColumn(name = "status_id")
+  @JoinColumn(name = "status_id", nullable = false)
   private Status status;
 
   @OneToMany(mappedBy = "complaint", cascade = CascadeType.ALL)

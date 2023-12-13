@@ -41,4 +41,9 @@ public class StatusService {
     statusRepository.delete(status);
     return status;
   }
+
+  // find by name
+  public Status findByName(String name) {
+    return statusRepository.findByName(name);
+  }
 }

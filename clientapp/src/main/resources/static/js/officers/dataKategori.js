@@ -78,6 +78,7 @@ $("#create-category").click((e) => {
     method: "POST",
     contentType: "application/json",
     dataType: "JSON",
+    beforeSend: addCSRFToken(),
     data: JSON.stringify({
       name: valueName,
       description: valueDescription,
@@ -146,6 +147,7 @@ $("#update-category").click((event) => {
     url: "/api/category/update/" + valueId,
     dataType: "JSON",
     contentType: "application/json",
+    beforeSend: addCSRFToken(),
     data: JSON.stringify({
       name: valueName,
       description: valueDescription,
@@ -207,6 +209,7 @@ $("#delete-category").click((event) => {
     url: `/api/category/${valueId}`,
     dataType: "JSON",
     contentType: "application/json",
+    beforeSend: addCSRFToken(),
     success: () => {
       getAllDataCategories();
 

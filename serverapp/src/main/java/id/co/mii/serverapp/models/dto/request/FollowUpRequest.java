@@ -1,4 +1,4 @@
-package id.co.mii.serverapp.models.dto;
+package id.co.mii.serverapp.models.dto.request;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;

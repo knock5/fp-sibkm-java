@@ -4,6 +4,7 @@ import id.co.mii.serverapp.models.Category;
 import id.co.mii.serverapp.services.CategoryService;
 import java.util.List;
 import lombok.AllArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/category")
+@PreAuthorize("hasAnyRole('ADMIN', 'OFFICER', 'USER')")
 public class CategoryController {
 
   private CategoryService categoryService;
@@ -30,11 +32,13 @@ public class CategoryController {
     return categoryService.getById(id);
   }
 
+  @PreAuthorize("hasAnyAuthority('ROLE_SUPER_ADMIN', 'ROLE_EDITOR_OFFICER')")
   @PostMapping
   public Category create(@RequestBody Category category) {
     return categoryService.create(category);
   }
 
+  @PreAuthorize("hasAnyAuthority('ROLE_SUPER_ADMIN', 'ROLE_EDITOR_OFFICER')")
   @PutMapping("/{id}")
   public Category update(
     @PathVariable Integer id,
@@ -43,6 +47,7 @@ public class CategoryController {
     return categoryService.update(id, category);
   }
 
+  @PreAuthorize("hasAnyAuthority('ROLE_SUPER_ADMIN', 'ROLE_EDITOR_OFFICER')")
   @DeleteMapping("/{id}")
   public Category delete(@PathVariable Integer id) {
     return categoryService.delete(id);

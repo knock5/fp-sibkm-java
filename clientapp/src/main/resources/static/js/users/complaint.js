@@ -31,18 +31,12 @@ $("#create-complaint").click((event) => {
   const valueCategory = $("#kategori-complaint").val();
   const valuePeople = $("#people-complaint").val();
 
-  console.log(valueTitle);
-  console.log(valueBody);
-  console.log(valueBukti);
-  console.log(valueDate);
-  console.log(valueCategory);
-  console.log(valuePeople);
-
   $.ajax({
     method: "POST",
     url: "/api/complaint",
     dataType: "JSON",
     contentType: "application/json",
+    beforeSend: addCSRFToken(),
     data: JSON.stringify({
       title: valueTitle,
       body: valueBody,
@@ -51,9 +45,7 @@ $("#create-complaint").click((event) => {
       categoryId: valueCategory,
       peopleId: valuePeople,
     }),
-    success: (res) => {
-      console.log(res);
-
+    success: () => {
       Swal.fire({
         position: "center",
         icon: "success",

@@ -48,13 +48,12 @@ $("#createFollowUp").click(function (event) {
   const officerId = $("#fuOfficerId").val();
   const statusId = $("#fuStatusId").val();
 
-  console.log(date);
-
   $.ajax({
     url: "api/followUp",
     method: "POST",
     dataType: "JSON",
     contentType: "application/json",
+    beforeSend: addCSRFToken(),
     data: JSON.stringify({
       followUpDate: date,
       followUpNotes: note,
@@ -62,9 +61,7 @@ $("#createFollowUp").click(function (event) {
       officerId: officerId,
       statusId: statusId,
     }),
-    success: (res) => {
-      console.log(res);
-
+    success: () => {
       swal.fire({
         title: "Success!",
         text: "Follow Up berhasil terbuat!",
@@ -76,6 +73,7 @@ $("#createFollowUp").click(function (event) {
       $("#fuNotes").val("");
       $("#fuComplaintId").val("");
       $("#fuOfficerId").val("");
+      $("#fuStatusId").val("");
     },
     error: () => {
       swal.fire({
