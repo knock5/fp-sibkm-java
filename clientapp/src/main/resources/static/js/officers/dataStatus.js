@@ -22,17 +22,6 @@ $(document).ready(function () {
         render: (data) => {
           return `
             <div class="d-flex justify-content-center align-items-center gap-2 flex-wrap">
-              <!-- Button trigger modal detail -->
-              <button
-                type="button"
-                class="btn btn-info btn-sm"
-                data-bs-toggle="modal"
-                data-bs-target="#detailStatusModal"
-                onclick="detailStatus(${data.id})"
-                title="detail"
-              >
-                <i class="bi bi-info-circle"></i>
-              </button>
               <!-- Button trigger modal delete -->
               <button
                 type="button"
@@ -71,7 +60,7 @@ $("#create-status").click((event) => {
     success: (res) => {
       // console.log(res);
       $("#createStatusModal").modal("hide");
-      $("#contentMenu").ajax.reload();
+      $("#tableStatus").DataTable().ajax.reload();
       Swal.fire({
         position: "center",
         icon: "success",
@@ -86,7 +75,63 @@ $("#create-status").click((event) => {
       Swal.fire({
         position: "center",
         icon: "error",
-        title: "Gagal menyimpan kategori baru!",
+        title: "Gagal menyimpan Status baru!",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+    },
+  });
+});
+
+// delete status
+const deleteStatus = (id) => {
+  $.ajax({
+    method: "GET",
+    url: `/api/status/${id}`,
+    dataType: "JSON",
+    contentType: "application/json",
+    success: (res) => {
+      $("#delete-idStatus").val(res.id);
+      $("#delete-name").val(res.name);
+    },
+    error: () => {
+      swal.fire({
+        title: "Gagal!",
+        text: "Gagal mengambil data status!",
+        icon: "error",
+        confirmButtonText: "Ok",
+      });
+    },
+  });
+};
+
+$("#delete-status").click((event) => {
+  event.preventDefault();
+
+  const valueId = $("#delete-idStatus").val();
+
+  $.ajax({
+    method: "DELETE",
+    url: `/api/status/${valueId}`,
+    dataType: "JSON",
+    contentType: "application/json",
+    success: () => {
+
+      $("#deleteStatusModal").modal("hide");
+      $("#tableStatus").DataTable().ajax.reload();
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Status berhasil di hapus!",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+    },
+    error: () => {
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Gagal menghapus Status!",
         showConfirmButton: false,
         timer: 2000,
       });
