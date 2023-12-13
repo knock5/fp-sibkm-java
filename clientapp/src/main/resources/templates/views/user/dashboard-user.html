@@ -10,7 +10,7 @@
     <!-- content -->
     <section class="container-fluid p-3 wrapper" layout:fragment="content">
       <div class="container">
-        <h1>Hi, User!</h1>
+        <h3>Halo, <span th:text="${username}"></span></h3>
         <p>
           Anda memiliki kendali penuh atas partisipasi Anda dalam membangun desa
           kita bersama-sama. Lihat ringkasan pengaduan, pantau statusnya, dan
@@ -20,7 +20,9 @@
 
         <div class="wrap-tombol-user d-flex gap-3 justify-content-center p-4">
           <a href="#" class="btn btn-primary">Lihat Pengaduan</a>
-          <a th:href="@{/tambah-complaint}" class="btn btn-primary">Tambah Pengaduan</a>
+          <a th:href="@{/tambah-complaint}" class="btn btn-primary"
+            >Tambah Pengaduan</a
+          >
         </div>
       </div>
     </section>

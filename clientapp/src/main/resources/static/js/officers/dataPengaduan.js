@@ -127,6 +127,7 @@ $("#createFollowUp").click(function (event) {
     method: "POST",
     dataType: "JSON",
     contentType: "application/json",
+    beforeSend: addCSRFToken(),
     data: JSON.stringify({
       followUpDate: date,
       followUpNotes: note,

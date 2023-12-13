@@ -36,6 +36,7 @@ $("#create-complaint").click((event) => {
     url: "/api/complaint",
     dataType: "JSON",
     contentType: "application/json",
+    beforeSend: addCSRFToken(),
     data: JSON.stringify({
       title: valueTitle,
       body: valueBody,

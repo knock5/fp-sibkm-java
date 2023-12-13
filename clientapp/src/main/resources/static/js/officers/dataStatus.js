@@ -56,20 +56,19 @@ $(document).ready(function () {
 $("#create-status").click((event) => {
   event.preventDefault();
 
-  let valueName = $("#status-name").val();
-  console.log(valueName);
+  const valueName = $("#status-name").val();
 
   $.ajax({
     method: "POST",
     url: "/api/status",
     dataType: "JSON",
     contentType: "application/json",
+    beforeSend: addCSRFToken(),
     data: JSON.stringify({
       name: valueName,
     }),
 
-    success: (res) => {
-      // console.log(res);
+    success: () => {
       $("#createStatusModal").modal("hide");
       $("#contentMenu").ajax.reload();
       Swal.fire({
@@ -81,8 +80,7 @@ $("#create-status").click((event) => {
       });
       $("#status-name").val("");
     },
-    error: (err) => {
-      // console.log(err);
+    error: () => {
       Swal.fire({
         position: "center",
         icon: "error",

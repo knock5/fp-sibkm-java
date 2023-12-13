@@ -1,7 +1,7 @@
 package id.co.mii.serverapp.services;
 
 import id.co.mii.serverapp.models.Complaint;
-import id.co.mii.serverapp.models.dto.ComplaintRequest;
+import id.co.mii.serverapp.models.dto.request.ComplaintRequest;
 import id.co.mii.serverapp.repositories.ComplaintRepository;
 import java.util.List;
 import lombok.AllArgsConstructor;

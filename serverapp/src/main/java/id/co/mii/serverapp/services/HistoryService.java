@@ -1,7 +1,7 @@
 package id.co.mii.serverapp.services;
 
 import id.co.mii.serverapp.models.History;
-import id.co.mii.serverapp.models.dto.HistoryRequest;
+import id.co.mii.serverapp.models.dto.request.HistoryRequest;
 import id.co.mii.serverapp.repositories.ComplaintRepository;
 import id.co.mii.serverapp.repositories.HistoryRepository;
 import id.co.mii.serverapp.repositories.StatusRepository;

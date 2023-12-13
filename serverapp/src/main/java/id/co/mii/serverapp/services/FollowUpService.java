@@ -4,7 +4,7 @@ import id.co.mii.serverapp.models.Complaint;
 import id.co.mii.serverapp.models.FollowUp;
 import id.co.mii.serverapp.models.Status;
 import id.co.mii.serverapp.models.User;
-import id.co.mii.serverapp.models.dto.FollowUpRequest;
+import id.co.mii.serverapp.models.dto.request.FollowUpRequest;
 import id.co.mii.serverapp.repositories.FollowUpRepository;
 import java.util.List;
 import lombok.AllArgsConstructor;
