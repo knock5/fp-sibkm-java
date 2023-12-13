@@ -43,6 +43,7 @@ public class PeopleController {
     return peopleService.update(id, People);
   }
 
+  
   @PreAuthorize("hasAnyAuthority('ROLE_SUPER_ADMIN', 'ROLE_EDITOR_OFFICER')")
   @DeleteMapping("/{id}")
   public People delete(@PathVariable Integer id) {
