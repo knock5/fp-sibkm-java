@@ -11,6 +11,8 @@ import org.springframework.stereotype.Repository;
 public interface PeopleRepository extends JpaRepository<People, Integer> {
   public boolean existsByEmail(String email);
 
+  public boolean existsById(Integer id);
+
   public boolean existsByPhone(String phone);
 
   @Query(

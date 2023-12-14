@@ -13,15 +13,13 @@
         <div
           class="d-flex justify-content-between align-items-center flex-wrap gap-3"
         >
-          <a th:href="@{/o-dashboard}" class="btn btn-warning">Kembali</a>
-          <h1>Data Pengaduan</h1>
-          <a th:href="@{/fu-complaint}" class="btn btn-success"
-            ><i class="bi bi-send-check"></i> Buat Tanggapan</a
-          >
+          <a th:href="@{/u-dashboard}" class="btn btn-warning">Kembali</a>
+          <h1>Pengaduan Saya</h1>
         </div>
       </div>
 
       <div class="container py-4">
+        <input type="text" th:value="${userId}" id="userIdComplaint" hidden />
         <table
           id="tableComplaint"
           class="table table-bordered table-striped table-hover"
@@ -190,7 +188,7 @@
     </section>
 
     <div layout:fragment="js">
-      <script th:src="@{/js/officers/dataPengaduan.js}"></script>
+      <script th:src="@{/js/users/dataComplaint.js}"></script>
     </div>
   </body>
 </html>

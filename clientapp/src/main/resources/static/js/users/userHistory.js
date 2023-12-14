@@ -1,9 +1,11 @@
-const urlFU = "api/history";
+const urlFU = "api/history/user";
 
 $(document).ready(function () {
+  const targetId = $("#idUserHistory").val();
+
   $("#tableFollowUp").DataTable({
     ajax: {
-      url: urlFU,
+      url: `${urlFU}/${targetId}`,
       method: "GET",
       dataSrc: "",
     },
