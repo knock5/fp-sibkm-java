@@ -65,4 +65,16 @@ public class ComplaintService {
       )
       .getBody();
   }
+
+  // get complaint by user id
+  public List<Complaint> getComplaintByUserId(Integer userId) {
+    return restTemplate
+      .exchange(
+        url.concat("/userId/" + userId),
+        HttpMethod.GET,
+        null,
+        new ParameterizedTypeReference<List<Complaint>>() {}
+      )
+      .getBody();
+  }
 }

@@ -34,4 +34,25 @@ public class DataComplaintUserController {
 
     return "views/user/tambah-complaint";
   }
+
+  @GetMapping("/user-complaint")
+  public String dataComplaintPage(Model model) {
+    Authentication auth = SecurityContextHolder
+      .getContext()
+      .getAuthentication();
+
+    // get user id from username
+    String username = auth.getName();
+    Integer userId = userService.findUserIdByUsername(username);
+
+    model.addAttribute("userId", userId);
+    model.addAttribute(
+      "username",
+      auth.getName().substring(0, 1).toUpperCase() + auth.getName().substring(1)
+    );
+    model.addAttribute("title", "LaporYuk - Laporan Saya");
+    model.addAttribute("isActive", "u-dashboard");
+
+    return "views/user/user-complaint";
+  }
 }
