@@ -40,7 +40,7 @@ public class People {
   @Column(nullable = false, length = 30)
   private String address;
 
-  @Column(nullable = false, unique = true, length = 12)
+  @Column(nullable = false, unique = true, length = 14)
   private String phone;
 
   @Column(length = 50)
