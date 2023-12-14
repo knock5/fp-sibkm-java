@@ -2,10 +2,12 @@ package id.co.mii.serverapp.services;
 
 import id.co.mii.serverapp.models.Complaint;
 import id.co.mii.serverapp.models.FollowUp;
+import id.co.mii.serverapp.models.History;
 import id.co.mii.serverapp.models.Status;
 import id.co.mii.serverapp.models.User;
 import id.co.mii.serverapp.models.dto.request.FollowUpRequest;
 import id.co.mii.serverapp.repositories.FollowUpRepository;
+import id.co.mii.serverapp.repositories.HistoryRepository;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -22,6 +24,7 @@ public class FollowUpService {
   private ComplaintService complaintService;
   private UserService userService;
   private StatusService statusService;
+  private HistoryRepository historyRepository;
 
   public List<FollowUp> getAll() {
     return followUpRepository.findAll();
@@ -52,7 +55,7 @@ public class FollowUpService {
     followUp.setComplaint(complaint);
     followUp.setUser(officer);
 
-    // Mengubah status
+    // Validasi status
     if (followUpRequest.getStatusId() != null) {
       Status status = statusService.getById(followUpRequest.getStatusId());
       if (status == null) {
@@ -63,6 +66,14 @@ public class FollowUpService {
       }
       complaint.setStatus(status);
     }
+
+    History history = modelMapper.map(followUpRequest, History.class);
+    history.setNotes(followUpRequest.getFollowUpNotes());
+    history.setComplaint(
+      complaintService.getById(followUpRequest.getComplaintId())
+    );
+    history.setStatus(statusService.getById(followUpRequest.getStatusId()));
+    historyRepository.save(history);
 
     return followUpRepository.save(followUp);
   }
