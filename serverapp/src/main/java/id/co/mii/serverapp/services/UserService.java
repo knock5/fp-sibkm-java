@@ -3,6 +3,7 @@ package id.co.mii.serverapp.services;
 import id.co.mii.serverapp.models.User;
 import id.co.mii.serverapp.repositories.UserRepository;
 import java.util.List;
+import java.util.Optional;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -40,5 +41,24 @@ public class UserService {
     User user = getById(id);
     userRepository.delete(user);
     return user;
+  }
+
+  public Integer findUserIdByUsername(String username) {
+    // Optional<User> userOptional = userRepository.findByUsername(username);
+
+    // return userOptional
+    //   .map(User::getId)
+    //   .orElseThrow(() ->
+    //     new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found!!")
+    //   );
+    Optional<User> userOptional = userRepository.findByUsername(username);
+
+    if (userOptional.isPresent()) {
+      User user = userOptional.get();
+      return user.getId();
+    } else {
+      System.out.println("User not found for username: " + username);
+      return null;
+    }
   }
 }

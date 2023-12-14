@@ -64,4 +64,16 @@ public class PeopleService {
       )
       .getBody();
   }
+
+  // get profile by username
+  public People getProfileByName(String username) {
+    return restTemplate
+      .exchange(
+        url.concat("/profile?name=" + username),
+        HttpMethod.GET,
+        null,
+        People.class
+      )
+      .getBody();
+  }
 }

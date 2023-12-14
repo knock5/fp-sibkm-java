@@ -1,20 +1,17 @@
 package id.co.mii.clientapp.services;
 
+import id.co.mii.clientapp.models.User;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import id.co.mii.clientapp.models.User;
-
 @Service
 public class UserService {
-    
+
   @Value("${server.api.url}/user")
   private String url;
 
@@ -38,26 +35,14 @@ public class UserService {
       .getBody();
   }
 
-  public User create(User user) {
-    return restTemplate
-      .exchange(url, HttpMethod.POST, new HttpEntity<>(user), User.class)
-      .getBody();
-  }
-
-  public User update(Integer id, User user) {
+  public Integer findUserIdByUsername(String username) {
     return restTemplate
       .exchange(
-        url.concat("/" + id),
-        HttpMethod.PUT,
-        new HttpEntity<>(user),
-        User.class
+        url.concat("/find-id/" + username),
+        HttpMethod.GET,
+        null,
+        Integer.class
       )
-      .getBody();
-  }
-
-  public User delete(Integer id) {
-    return restTemplate
-      .exchange(url.concat("/" + id), HttpMethod.DELETE, null, User.class)
       .getBody();
   }
 }

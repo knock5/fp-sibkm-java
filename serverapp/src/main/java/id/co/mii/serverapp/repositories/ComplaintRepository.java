@@ -11,5 +11,5 @@ public interface ComplaintRepository extends JpaRepository<Complaint, Integer> {
   @Query(
     "SELECT c FROM Complaint c JOIN c.status s WHERE s.name <> 'Selesai' OR s.name <> 'selesai'"
   )
-  List<Complaint> findAllByStatusNameNotSelesai();
+  public List<Complaint> findAllByStatusNameNotSelesai();
 }

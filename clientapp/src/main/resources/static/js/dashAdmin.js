@@ -12,15 +12,19 @@ $(document).ready(function () {
     $(this).addClass("active");
   });
 
-  // render user div
+  // render people div
   $("#linkPeople").on("click", function () {
     $("#role").hide();
+    $("#divCreateRole").hide();
+    $("#divCreatePeople").show();
     $("#user").show();
   });
 
-  // render officer div
+  // render role div
   $("#linkRole").on("click", function () {
     $("#user").hide();
+    $("#divCreatePeople").hide();
+    $("#divCreateRole").show();
     $("#role").show();
   });
 });
@@ -81,15 +85,13 @@ let getDataPeople = () => {
                 data-bs-target="#updatePeopleModal"
                 onclick="updatePeople(${data.id})"
                 title="Edit"
-              >
+                >
                 <i class="bi bi-pencil-square"></i>
-              </button>
-              <!-- Button trigger modal delete -->
-              <button
+                </button>
+                <!-- Button trigger modal delete -->
+                <button
                 type="button"
                 class="btn btn-danger btn-sm"
-                data-bs-toggle="modal"
-                data-bs-target="#deletePeopleModal"
                 onclick="deletePeople(${data.id})"
                 title="Delete"
               >
@@ -120,6 +122,10 @@ let getDataRole = () => {
         },
       },
       {
+        data: "id",
+        className: "text-center",
+      },
+      {
         data: "name",
         className: "text-center",
       },
@@ -143,8 +149,6 @@ let getDataRole = () => {
               <button
                 type="button"
                 class="btn btn-danger btn-sm"
-                data-bs-toggle="modal"
-                data-bs-target="#deleteRoleModal"
                 onclick="deleteRole(${data.id})"
                 title="Delete"
               >
@@ -157,7 +161,6 @@ let getDataRole = () => {
     ],
   });
 };
-
 
 // function detail people
 let detailPeople = (id) => {
@@ -195,17 +198,14 @@ let updatePeople = (id) => {
     dataType: "JSON",
     contentType: "application/json",
     success: (data) => {
-      $("#userId").val(data.id);
-      $("#userNik").val(data.nik);
-      $("#userName").val(data.name);
-      $("#userEmail").val(data.email);
-      $("#userPhone").val(data.phone);
-      $("#userJob").val(data.job);
-      $("#userAddress").val(data.address);
-      $("#userProfile").val(data.profile);
-      // $("#usernameAcc").text(data.user.username);
-      $("#userRole").text(data.user.roles[0].name);
-      console.log(data);
+      $("#editId").val(data.id);
+      $("#editNik").val(data.nik);
+      $("#editName").val(data.name);
+      $("#editEmail").val(data.email);
+      $("#editPhone").val(data.phone);
+      $("#editJob").val(data.job);
+      $("#editAddress").val(data.address);
+      $("#editProfilePicture").val(data.profile_picture);
     },
     error: () => {
       swal.fire({
@@ -221,36 +221,31 @@ let updatePeople = (id) => {
 $("#update-people").click((event) => {
   event.preventDefault();
 
-  let updateId = $("#userId").val();
-  let updateNIK = $("#userNik").val();
-  let updateName = $("#userName").val();
-  let updateEmail = $("#userEmail").val();
-  let updatePhone = $("#userPhone").val();
-  let updateJob = $("#userJob").val();
-  let updateAddress = $("#userAddress").val();
-  let updateProfile = $("#userProfile").val();
-  // let updateRoles = $("#userRole").val();
-  // let updateUser = $("#userUserId").val();
+  let valUpdateId = $("#editId").val();
+  let valUpdateNIK = $("#editNik").val();
+  let valUpdateName = $("#editName").val();
+  let valUpdateEmail = $("#editEmail").val();
+  let valUpdatePhone = $("#editPhone").val();
+  let valUpdateJob = $("#editJob").val();
+  let valUpdateAddress = $("#editAddress").val();
+  let valUpdatePP = $("#editProfilePicture").val();
 
   $.ajax({
     method: "PUT",
-    url: "/api/people/update/" + updateId,
+    url: `${urlPeople}/update/${valUpdateId}`,
     dataType: "JSON",
     contentType: "application/json",
+    beforeSend: addCSRFToken(),
     data: JSON.stringify({
-      nik: updateNIK,
-      name: updateName,
-      email : updateEmail,
-      phone : updatePhone,
-      job : updateJob,
-      address : updateAddress,
-      profile_picture : updateProfile,
-      // roles : updateRoles,
-      // user : {id : updateUser}
+      nik: valUpdateNIK,
+      name: valUpdateName,
+      email: valUpdateEmail,
+      phone: valUpdatePhone,
+      job: valUpdateJob,
+      address: valUpdateAddress,
+      profile_picture: valUpdatePP,
     }),
-    success: (res) => {
-      // console.log(res);
-      
+    success: () => {
       Swal.fire({
         position: "center",
         icon: "success",
@@ -258,21 +253,18 @@ $("#update-people").click((event) => {
         showConfirmButton: false,
         timer: 2000,
       });
-      // $("#userRole").text(updateRoles);
-      $("#userNik").val("");
-      $("#userName").val("");
-      $("#userEmail").val("");
-      $("#userPhone").val("");
-      $("#userJob").val("");
-      $("#userAddress").val("");
-      $("#userProfile").val("");
 
-      // $("#userUserId").val("");
-      
+      $("#editId").val("");
+      $("#editNik").val("");
+      $("#editName").val("");
+      $("#editEmail").val("");
+      $("#editPhone").val("");
+      $("#editJob").val("");
+      $("#editAddress").val("");
+      $("#editProfilePicture").val("");
+
       $("#updatePeopleModal").modal("hide");
       $("#tablePeople").DataTable().ajax.reload();
-      // console.log(res);
-      
     },
     error: () => {
       Swal.fire({
@@ -286,10 +278,8 @@ $("#update-people").click((event) => {
   });
 });
 
-
 // Delete People
 function deletePeople(id) {
-  console.log(id);
   Swal.fire({
     title: "Are you sure?",
     text: "You want delete this User?",
@@ -307,8 +297,8 @@ function deletePeople(id) {
         url: `${urlPeople}/${id}`,
         dataType: "JSON",
         contentType: "application/json",
-        success: function (res) {
-          console.log(res);
+        beforeSend: addCSRFToken(),
+        success: function () {
           $("#tablePeople").DataTable().ajax.reload();
         },
         error: function (err) {
@@ -325,32 +315,31 @@ $("#create-role").click((event) => {
   event.preventDefault();
 
   let valueName = $("#role-name").val();
-  console.log(valueName);
-    
 
   $.ajax({
-      method: "POST",
-      url: urlRole,
-      dataType: "JSON",
-      contentType: "application/json",
-      data: JSON.stringify({
-          name: valueName,
-      }),
-      success: (res) => {
-          $("#createRoleModal").modal("hide");
-          $("#tableRole").DataTable().ajax.reload();
-          Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "Yeay You Have New Role...",
-          showConfirmButton: false,
-          timer: 2000,
-          });
-          $("#role-name").val("");
-      },
-      error: (err) => {
-          console.log(err);
-      },
+    method: "POST",
+    url: urlRole,
+    dataType: "JSON",
+    contentType: "application/json",
+    beforeSend: addCSRFToken(),
+    data: JSON.stringify({
+      name: valueName,
+    }),
+    success: () => {
+      $("#createRoleModal").modal("hide");
+      $("#tableRole").DataTable().ajax.reload();
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Yeay You Have New Role...",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+      $("#role-name").val("");
+    },
+    error: (err) => {
+      console.log(err);
+    },
   });
 });
 
@@ -362,9 +351,8 @@ let updateRole = (id) => {
     dataType: "JSON",
     contentType: "application/json",
     success: (res) => {
-      console.log(res);
-      $("#update-id").val(res.id);
-      $("#update-name").text(res.name);
+      $("#editRoleId").val(res.id);
+      $("#editRoleName").val(res.name);
     },
     error: () => {
       swal.fire({
@@ -380,19 +368,19 @@ let updateRole = (id) => {
 $("#update-role").click((event) => {
   event.preventDefault();
 
-  let valueId = $("#update-id").val();
-  let valueName = $("#update-name").val();
+  let valueId = $("#editRoleId").val();
+  let valueName = $("#editRoleName").val();
 
   $.ajax({
     method: "PUT",
-    url: "/api/role/update/" + valueId ,
+    url: `${urlRole}/update/${valueId}`,
     dataType: "JSON",
     contentType: "application/json",
+    beforeSend: addCSRFToken(),
     data: JSON.stringify({
       name: valueName,
     }),
-    success: (res) => {
-      console.log(res);
+    success: () => {
       Swal.fire({
         position: "center",
         icon: "success",
@@ -400,7 +388,9 @@ $("#update-role").click((event) => {
         showConfirmButton: false,
         timer: 2000,
       });
-      $("#update-name").val("");
+
+      $("#editRoleId").val("");
+      $("#editRoleName").val("");
       $("#updateRoleModal").modal("hide");
       $("#tableRole").DataTable().ajax.reload();
     },
@@ -418,7 +408,6 @@ $("#update-role").click((event) => {
 
 // Delete Role
 function deleteRole(id) {
-  console.log(id);
   Swal.fire({
     title: "Are you sure?",
     text: "You want delete this User?",
@@ -436,8 +425,8 @@ function deleteRole(id) {
         url: `${urlRole}/${id}`,
         dataType: "JSON",
         contentType: "application/json",
-        success: function (res) {
-          console.log(res);
+        beforeSend: addCSRFToken(),
+        success: function () {
           $("#tableRole").DataTable().ajax.reload();
         },
         error: function (err) {

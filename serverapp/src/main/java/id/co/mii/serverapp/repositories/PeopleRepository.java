@@ -9,15 +9,16 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PeopleRepository extends JpaRepository<People, Integer> {
-  boolean existsByEmail(String email);
-  boolean existsByPhone(String phone);
+  public boolean existsByEmail(String email);
+
+  public boolean existsByPhone(String phone);
 
   @Query(
     "SELECT p FROM People p JOIN p.user u JOIN u.roles r WHERE r.name = :roleName"
   )
-  List<People> findByRoleName(@Param("roleName") String roleName);
+  public List<People> findByRoleName(@Param("roleName") String roleName);
 
   // find people by username
-  @Query("SELECT e FROM People e WHERE e.user.username = :username")
+  @Query("SELECT p FROM People p JOIN p.user u WHERE u.username = :username")
   public People findPeopleByUsername(@Param("username") String username);
 }

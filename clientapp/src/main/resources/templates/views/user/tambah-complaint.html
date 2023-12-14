@@ -19,43 +19,17 @@
         <div class="p-3">
           <form>
             <div class="row mt-2 mb-3">
-              <div class="col-md-3">
-                <span
-                  class="input-group-text fw-bold bg-dark-subtle border border-dark-subtle"
-                  id="c-id"
-                  >Masukan Id Anda</span
-                >
-              </div>
-              <div class="col-md-9">
-                <input
-                  type="text"
-                  aria-label="Sizing example input"
-                  aria-describedby="c-id"
-                  id="people-complaint"
-                  class="form-control border border-dark-subtle"
-                  required
-                />
-              </div>
+              <input
+                type="text"
+                aria-label="Sizing example input"
+                aria-describedby="people-complaint"
+                id="people-complaint"
+                class="form-control border border-dark-subtle"
+                th:value="${userId}"
+                hidden
+                required
+              />
             </div>
-            <!-- <div class="row mt-2 mb-3">
-              <div class="col-md-3">
-                <span
-                  class="input-group-text fw-bold bg-dark-subtle border border-dark-subtle"
-                  id="c-date"
-                  >Tanggal</span
-                >
-              </div>
-              <div class="col-md-9">
-                <input
-                  type="text"
-                  aria-label="Sizing example input"
-                  aria-describedby="c-date"
-                  id="date-complaint"
-                  class="form-control border border-dark-subtle"
-                  required
-                />
-              </div>
-            </div> -->
             <div class="row mt-2 mb-3">
               <div class="col-md-3">
                 <span

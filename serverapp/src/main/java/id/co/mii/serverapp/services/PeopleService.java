@@ -49,6 +49,7 @@ public class PeopleService {
     return peopleRepository.findByRoleName(roleName);
   }
 
+
   // get profile by username
   public People getProfileByName(String username) {
     return peopleRepository.findPeopleByUsername(username);
