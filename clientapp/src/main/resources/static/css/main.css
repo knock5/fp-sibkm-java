@@ -223,3 +223,70 @@
   width: 150px;
   height: 150px;
 }
+
+/* dashboard user */
+.kartu {
+  width: 300px;
+  height: 400px;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s ease;
+  border: 1px solid var(--second);
+}
+.kartu:before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom right, var(--second), var(--white));
+  transform: rotate(-45deg);
+  transition: all 0.3s ease;
+  z-index: -1;
+}
+.kartu:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+}
+.kartu:hover:before {
+  top: 0;
+  left: 0;
+}
+.kartu-content {
+  padding: 20px;
+  text-align: center;
+}
+.kartu-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+.kartu-description {
+  font-size: 16px;
+  color: #777;
+  margin-bottom: 20px;
+}
+.kartu-button {
+  padding: 10px 20px;
+  background-color: var(--second);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+.kartu-button:hover {
+  background-color: var(--white);
+  color: var(--second);
+}

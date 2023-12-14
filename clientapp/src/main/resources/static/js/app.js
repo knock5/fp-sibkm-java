@@ -33,7 +33,6 @@ const getUserProfile = () => {
       profileAddress.val(res.address);
       profilePhone.val(res.phone);
       profileJob.val(res.job);
-      // get user role
       profileRole.val(res.user.roles[0].name);
       profileUsernameAcc.val(res.user.username);
       profilePicture.attr("src", res.profile_picture);
@@ -63,6 +62,7 @@ const getUserProfile = () => {
         $("#u-userAddress").val(res.address);
         $("#u-userPhone").val(res.phone);
         $("#u-userJob").val(res.job);
+        $("#u-userPP").val(res.profile_picture);
       },
       error: () => {
         Swal.fire({
@@ -90,6 +90,7 @@ const getUserProfile = () => {
         address: $("#u-userAddress").val(),
         phone: $("#u-userPhone").val(),
         job: $("#u-userJob").val(),
+        profile_picture: $("#u-userPP").val(),
       }),
       success: () => {
         Swal.fire({

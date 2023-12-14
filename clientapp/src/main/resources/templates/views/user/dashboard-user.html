@@ -18,16 +18,34 @@
           menjadi nyata.
         </p>
 
-        <div class="wrap-tombol-user d-flex gap-3 justify-content-center p-4">
-          <a th:href="@{/user-complaint}" class="btn btn-primary"
-            >Lihat Pengaduan Saya</a
-          >
-          <a th:href="@{/tambah-complaint}" class="btn btn-primary"
-            >Tambah Pengaduan</a
-          >
-          <a th:href="@{/user-history}" class="btn btn-primary"
-            >Lihat Follow Up</a
-          >
+        <div
+          class="wrap-tombol-user d-flex gap-3 justify-content-center p-4 flex-wrap"
+        >
+          <div class="kartu">
+            <div class="kartu-content">
+              <div class="kartu-title">Ajukan Pengaduan</div>
+              <p class="kartu-description">Buat dan ajukan pengaduan Anda</p>
+              <a th:href="@{/tambah-complaint}" class="kartu-button">Buat</a>
+            </div>
+          </div>
+          <div class="kartu">
+            <div class="kartu-content">
+              <div class="kartu-title">Data Pengaduan</div>
+              <p class="kartu-description">
+                Lihat data pengaduan yang telah Anda buat
+              </p>
+              <a th:href="@{/user-complaint}" class="kartu-button">Lihat</a>
+            </div>
+          </div>
+          <div class="kartu">
+            <div class="kartu-content">
+              <div class="kartu-title">Data Follow Up</div>
+              <p class="kartu-description">
+                Lihat hasil follow up dari petugas
+              </p>
+              <a th:href="@{/user-history}" class="kartu-button">Lihat</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>

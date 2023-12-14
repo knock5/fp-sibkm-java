@@ -25,6 +25,7 @@ $(document).ready(function () {
         render: (data) => {
           return `<span class="badge badge-pill ${data.status.name}">${data.status.name}</span>`;
         },
+        className: "text-center",
       },
     ],
   });
