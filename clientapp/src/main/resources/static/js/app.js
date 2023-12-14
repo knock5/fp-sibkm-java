@@ -35,7 +35,6 @@ const getUserProfile = () => {
       profileUsernameAcc.val(res.user.username);
       profilePicture.attr("src", res.profile_picture);
       profilePicture.addClass("rounded-profile-image");
-      console.log(res);
     },
     error: () => {
       Swal.fire({
@@ -61,8 +60,45 @@ const getUserProfile = () => {
         $("#u-userAddress").val(res.address);
         $("#u-userPhone").val(res.phone);
         $("#u-userJob").val(res.job);
-        $("#u-userUsername").val(res.user.username);
-        console.log(res);
+      },
+      error: () => {
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Sorry, user not found!",
+          showConfirmButton: false,
+          timer: 2000,
+        });
+      },
+    });
+  });
+
+  $("#u-profUser").on("click", () => {
+    $.ajax({
+      url: `/api/people/update/${profileId.val()}`,
+      method: "PUT",
+      contentType: "application/json",
+      beforeSend: addCSRFToken(),
+      data: JSON.stringify({
+        id: $("#u-userId").val(),
+        nik: $("#u-userNik").val(),
+        name: $("#u-userName").val(),
+        email: $("#u-userEmail").val(),
+        address: $("#u-userAddress").val(),
+        phone: $("#u-userPhone").val(),
+        job: $("#u-userJob").val(),
+      }),
+      success: () => {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Profile updated successfully!",
+          showConfirmButton: false,
+          timer: 2000,
+        });
+        setTimeout(() => {
+          window.location.reload();
+        }, 2000);
       },
       error: () => {
         Swal.fire({

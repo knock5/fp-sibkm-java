@@ -83,11 +83,15 @@
   font-weight: bold;
   font-size: 1.2rem;
 }
+/* profile */
 .rounded-profile-image {
   max-width: 20%;
   max-height: 200px;
   width: auto;
   height: auto;
+}
+.form-group {
+  margin: 5px 0 !important;
 }
 
 /* dashboard admin */
@@ -219,5 +223,3 @@
   width: 150px;
   height: 150px;
 }
-
-
