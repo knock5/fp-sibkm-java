@@ -1,11 +1,9 @@
 package id.co.mii.clientapp.controllers;
 
-import groovyjarjarantlr4.v4.parse.ANTLRParser.atom_return;
 import id.co.mii.clientapp.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
