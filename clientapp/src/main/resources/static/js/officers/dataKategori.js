@@ -112,7 +112,7 @@ $("#create-category").click((e) => {
 const updateCategory = (id) => {
   $.ajax({
     method: "GET",
-    url: `/api/category/${id}`,
+    url: `${urlCategory}/${id}`,
     dataType: "JSON",
     contentType: "application/json",
     success: (res) => {
@@ -181,7 +181,7 @@ $("#update-category").click((event) => {
 const deleteCategory = (id) => {
   $.ajax({
     method: "GET",
-    url: `/api/category/${id}`,
+    url: `${urlCategory}/${id}`,
     dataType: "JSON",
     contentType: "application/json",
     success: (res) => {

@@ -19,6 +19,7 @@ const getUserProfile = () => {
   const profilePhone = $("#userPhone");
   const profileJob = $("#userJob");
   const profilePicture = $("#userPicture");
+  const profileRole = $("#userRole");
   const profileUsernameAcc = $("#userUsername");
 
   $.ajax({
@@ -32,6 +33,8 @@ const getUserProfile = () => {
       profileAddress.val(res.address);
       profilePhone.val(res.phone);
       profileJob.val(res.job);
+      // get user role
+      profileRole.val(res.user.roles[0].name);
       profileUsernameAcc.val(res.user.username);
       profilePicture.attr("src", res.profile_picture);
       profilePicture.addClass("rounded-profile-image");

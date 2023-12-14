@@ -99,4 +99,9 @@ public class ComplaintService {
   public List<Complaint> findAllByStatusName() {
     return complaintRepository.findAllByStatusNameNotSelesai();
   }
+
+  // get all complaint by user id
+  public List<Complaint> getComplaintByUserId(Integer userId) {
+    return complaintRepository.findByPeopleId(userId);
+  }
 }

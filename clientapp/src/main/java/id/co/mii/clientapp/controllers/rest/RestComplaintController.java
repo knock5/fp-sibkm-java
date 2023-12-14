@@ -45,4 +45,10 @@ public class RestComplaintController {
   public List<Complaint> findAllComplaintActive() {
     return complaintService.findAllComplaintActive();
   }
+
+  // get all complaint by user id
+  @GetMapping("/user/{id}")
+  public List<Complaint> findByPeopleId(@PathVariable Integer id) {
+    return complaintService.getComplaintByUserId(id);
+  }
 }

@@ -46,7 +46,6 @@ public class ComplaintController {
     return complaintService.update(id, complaint);
   }
 
-  @PreAuthorize("hasAnyAuthority('ROLE_SUPER_ADMIN', 'ROLE_EDITOR_OFFICER')")
   @DeleteMapping("/{id}")
   public Complaint delete(@PathVariable Integer id) {
     return complaintService.delete(id);
@@ -56,5 +55,11 @@ public class ComplaintController {
   @GetMapping("/active")
   public List<Complaint> findAllByStatusName() {
     return complaintService.findAllByStatusName();
+  }
+
+  // get all complaint by user id
+  @GetMapping("/userId/{userId}")
+  public List<Complaint> getComplaintByUserId(@PathVariable Integer userId) {
+    return complaintService.getComplaintByUserId(userId);
   }
 }

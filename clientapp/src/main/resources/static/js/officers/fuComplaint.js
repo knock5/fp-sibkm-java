@@ -2,7 +2,6 @@ const urlPengaduan = "api/complaint";
 
 $(document).ready(() => {
   $("#fuNotes").val("");
-  $("#fuOfficerId").val("");
 
   // get complaint not resolved
   getActiveComplaint();
@@ -47,6 +46,7 @@ $("#createFollowUp").click(function (event) {
   const complaintId = $("#fuComplaintId").val();
   const officerId = $("#fuOfficerId").val();
   const statusId = $("#fuStatusId").val();
+  console.log(officerId);
 
   $.ajax({
     url: "api/followUp",

@@ -21,16 +21,15 @@
       <div class="container py-4">
         <form>
           <div class="form-group py-2">
-            <div class="form-group py-2">
-              <label for="id-petugas">ID Petugas</label>
-              <input
-                type="text"
-                class="form-control"
-                id="fuOfficerId"
-                name="officerId"
-                required
-              />
-            </div>
+            <input
+              type="text"
+              class="form-control"
+              id="fuOfficerId"
+              name="officerId"
+              th:value="${userId}"
+              hidden
+              required
+            />
             <label for="complaintIdtarget">ID Pengaduan</label>
             <select
               class="form-select"
