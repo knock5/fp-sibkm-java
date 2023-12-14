@@ -13,31 +13,7 @@
     <!-- content -->
     <section class="container-fluid p-3 wrapper" layout:fragment="content">
       <div class="container">
-        <h1 class="text-center pt-3">Tentang LaporYuk</h1>
-        <div class="py-3">
-          <p class="text-center">
-            Kami adalah tim yang berkomitmen untuk menciptakan solusi inovatif
-            dan memberikan layanan terbaik bagi masyarakat. Dengan semangat
-            pelayanan dan dedikasi kami, LaporYuk hadir sebagai langkah nyata
-            dalam memperbaiki kualitas hidup dan menjawab berbagai tantangan
-            yang dihadapi masyarakat.
-          </p>
-          <p class="text-center">
-            Pada sisi backend, kami memilih Java Spring Boot sebagai fondasi
-            utama proyek kami. Java Spring Boot memberikan kerangka kerja yang
-            kuat dan terstruktur untuk pengembangan aplikasi berbasis mikro dan
-            mendukung pengelolaan sumber daya dengan baik. Dengan menggunakan
-            bahasa pemrograman Java, kami dapat memastikan keandalan, kinerja,
-            dan keamanan tinggi pada setiap langkah pengembangan.
-          </p>
-          <p class="text-center">
-            Di sisi frontend, kami memilih Thymeleaf, bootstrap, DataTables, dan
-            JQuery untuk memberikan pengalaman pengguna yang intuitif dan
-            responsif. Pendekatan ini memungkinkan kami menghadirkan antarmuka
-            yang menarik dan mudah digunakan, memastikan bahwa setiap pengguna
-            dapat berinteraksi dengan platform kami dengan nyaman dan efisien.
-          </p>
-        </div>
+        <!-- <h1 class="text-center pt-3">Tentang LaporYuk</h1> -->
         <div
           class="d-flex justify-content-center align-items-center gap-3 flex-wrap py-3"
         >
@@ -63,15 +39,51 @@
             </p>
           </div>
         </div>
+        <div class="container py-4">
+          <h1 class="text-center pt-5">Visi Misi LaporYuk</h1>
+          <div class="row pt-3">
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-body">
+                  <h2 class="card-title">Visi</h2>
+                  <p class="card-text">
+                    Misi kami adalah memberikan akses kepada masyarakat untuk secara
+                    langsung berpartisipasi dalam pengelolaan lingkungan sekitarnya.
+                    Dengan LaporYuk, kami mengajak Anda untuk tidak hanya menjadi
+                    saksi, tetapi juga pelaku dalam menciptakan solusi bagi
+                    permasalahan yang dihadapi. Kami percaya bahwa melibatkan
+                    masyarakat adalah kunci keberlanjutan dan keberhasilan
+                    komunitas.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-body">
+                  <h2 class="card-title">Misi</h2>
+                  <p class="card-text">
+                    Di LaporYuk, kami berkomitmen untuk membawa perubahan positif
+                    melalui pemberdayaan masyarakat. Visi kami adalah menciptakan
+                    masyarakat yang adil, inklusif, dan memiliki kapasitas untuk
+                    memecahkan masalah bersama. Kami percaya bahwa setiap individu
+                    memiliki peran yang penting dalam pembangunan komunitas yang
+                    berkelanjutan.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="container py-4">
         <h1 class="text-center pt-5">Temui Tim Kami</h1>
         <div class="d-flex justify-content-center gap-3 flex-wrap pt-3">
           <!-- Card 1 -->
-          <div class="card">
+          <div class="card1">
             <div class="d-flex justify-content-center">
               <img
-                th:src="@{/img/icon-profile.jpeg}"
+                th:src="@{/img/foto1.png}"
                 alt="User 1"
                 class="w-100"
               />
@@ -97,10 +109,10 @@
           </div>
 
           <!-- Card 2 -->
-          <div class="card">
+          <div class="card1">
             <div class="d-flex justify-content-center">
               <img
-                th:src="@{/img/icon-profile.jpeg}"
+                th:src="@{/img/foto2.jpg}"
                 alt="User 2"
                 class="w-100"
               />
@@ -126,10 +138,10 @@
           </div>
 
           <!-- Card 3 -->
-          <div class="card">
+          <div class="card1">
             <div class="d-flex justify-content-center">
               <img
-                th:src="@{/img/icon-profile.jpeg}"
+                th:src="@{/img/foto3.jpg}"
                 alt="User 3"
                 class="w-100"
               />
@@ -155,10 +167,10 @@
           </div>
 
           <!-- Card 4 -->
-          <div class="card">
+          <div class="card1">
             <div class="d-flex justify-content-center">
               <img
-                th:src="@{/img/icon-profile.jpeg}"
+                th:src="@{/img/foto4.jpg}"
                 alt="User 4"
                 class="w-100"
               />
