@@ -16,4 +16,8 @@ public interface PeopleRepository extends JpaRepository<People, Integer> {
     "SELECT p FROM People p JOIN p.user u JOIN u.roles r WHERE r.name = :roleName"
   )
   List<People> findByRoleName(@Param("roleName") String roleName);
+
+  // find people by username
+  @Query("SELECT e FROM People e WHERE e.user.username = :username")
+  public People findPeopleByUsername(@Param("username") String username);
 }

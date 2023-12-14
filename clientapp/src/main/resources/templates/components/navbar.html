@@ -94,8 +94,27 @@
                 <span class="name" th:text="${username}"></span>
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#">Profil</a></li>
-                <li><a class="dropdown-item" href="#">Keluar</a></li>
+                <li>
+                  <button
+                    class="dropdown-item"
+                    data-bs-toggle="modal"
+                    data-bs-target="#profileModal"
+                    type="button"
+                    onclick="getUserProfile()"
+                  >
+                    Profile <i class="bi bi-person"></i>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    class="dropdown-item"
+                    data-bs-toggle="modal"
+                    data-bs-target="#logoutModal"
+                    type="button"
+                  >
+                    Log Out <i class="bi bi-box-arrow-right"></i>
+                  </button>
+                </li>
               </ul>
             </div>
           </div>
