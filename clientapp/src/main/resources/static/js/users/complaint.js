@@ -1,5 +1,7 @@
 $(document).ready(() => {
-  $("#people-complaint").val("");
+  const valTest = $("#people-complaint").val();
+  console.log(valTest);
+
   $("#title-complaint").val("");
   $("#bukti-complaint").val("");
   $("#laporan").val("");

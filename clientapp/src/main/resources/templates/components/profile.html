@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modal Profile</title>
+  </head>
+  <body>
+    <div th:fragment="profile">
+      <!-- Modal Profile -->
+      <div
+        class="modal fade"
+        id="profileModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog cascading-modal modal-avatar modal-sm"></div>
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header text-center">
+              <img
+                src="https://mdbootstrap.com/img/Photos/Avatars/img%20%281%29.webp"
+                alt="avatar"
+                class="rounded-circle mx-auto d-block"
+                id="userPicture"
+              />
+            </div>
+            <div class="modal-body text-center mb-1">
+              <div class="my-3">
+                <form>
+                  <div class="form-group row">
+                    <label for="disableInput" class="col-sm-2 col-form-label"
+                      >ID :</label
+                    >
+                    <div class="col-sm-10">
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="userId"
+                        placeholder=""
+                      />
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="disableInput" class="col-sm-2 col-form-label"
+                      >NIK</label
+                    >
+                    <div class="col-sm-10">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="userNik"
+                        placeholder=""
+                      />
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="disableInput" class="col-sm-2 col-form-label"
+                      >Name</label
+                    >
+                    <div class="col-sm-10">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="userName"
+                        placeholder=""
+                      />
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="disableInput" class="col-sm-2 col-form-label"
+                      >Email</label
+                    >
+                    <div class="col-sm-10">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="userEmail"
+                        placeholder=""
+                      />
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="disableInput" class="col-sm-2 col-form-label"
+                      >Address</label
+                    >
+                    <div class="col-sm-10">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="userAddress"
+                        placeholder=""
+                      />
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="disableInput" class="col-sm-2 col-form-label"
+                      >Phone</label
+                    >
+                    <div class="col-sm-10">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="userPhone"
+                        placeholder=""
+                      />
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="disableInput" class="col-sm-2 col-form-label"
+                      >Job</label
+                    >
+                    <div class="col-sm-10">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="userJob"
+                        placeholder=""
+                      />
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="disableInput" class="col-sm-2 col-form-label"
+                      >Username</label
+                    >
+                    <div class="col-sm-10">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="userUsername"
+                        placeholder=""
+                      />
+                    </div>
+                  </div>
+                </form>
+
+                <div class="d-flex justify-content-between my-3">
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    data-bs-dismiss="modal"
+                    data-bs-toggle="modal"
+                    data-bs-target="#updateProfile"
+                    id="getEditProfile"
+                  >
+                    Edit Profile <i class="bi bi-person-vcard"></i>
+                  </button>
+
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#updateAccount"
+                    id="getEditAccount"
+                  >
+                    Edit Account <i class="bi bi-person-lines-fill"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-bs-dismiss="modal"
+                >
+                  Close <i class="bi bi-x"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Update Profile -->
+      <div
+        class="modal fade"
+        id="updateProfile"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header d-flex justify-content-center">
+              <h1 class="modal-title fs-4 fw-bold" id="exampleModalLabel">
+                Update Profile
+              </h1>
+            </div>
+            <form>
+              <div class="modal-body">
+                <div class="my-3">
+                  <form>
+                    <div class="form-group row">
+                      <label for="disableInput" class="col-sm-2 col-form-label"
+                        >ID :</label
+                      >
+                      <div class="col-sm-10">
+                        <input
+                          type="email"
+                          class="form-control"
+                          id="u-userId"
+                          placeholder=""
+                        />
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="disableInput" class="col-sm-2 col-form-label"
+                        >NIK</label
+                      >
+                      <div class="col-sm-10">
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="u-userNik"
+                          placeholder=""
+                        />
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="disableInput" class="col-sm-2 col-form-label"
+                        >Name</label
+                      >
+                      <div class="col-sm-10">
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="u-userName"
+                          placeholder=""
+                        />
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="disableInput" class="col-sm-2 col-form-label"
+                        >Email</label
+                      >
+                      <div class="col-sm-10">
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="u-userEmail"
+                          placeholder=""
+                        />
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="disableInput" class="col-sm-2 col-form-label"
+                        >Address</label
+                      >
+                      <div class="col-sm-10">
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="u-userAddress"
+                          placeholder=""
+                        />
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="disableInput" class="col-sm-2 col-form-label"
+                        >Phone</label
+                      >
+                      <div class="col-sm-10">
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="u-userPhone"
+                          placeholder=""
+                        />
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="disableInput" class="col-sm-2 col-form-label"
+                        >Job</label
+                      >
+                      <div class="col-sm-10">
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="u-userJob"
+                          placeholder=""
+                        />
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="disableInput" class="col-sm-2 col-form-label"
+                        >Username</label
+                      >
+                      <div class="col-sm-10">
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="u-userUsername"
+                          placeholder=""
+                        />
+                      </div>
+                    </div>
+                  </form>
+
+                  <div class="d-flex justify-content-between my-3">
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      data-bs-toggle="modal"
+                      data-bs-target="#updateProfile"
+                      id="getProfileProfile"
+                    >
+                      Edit Profile <i class="bi bi-person-vcard"></i>
+                    </button>
+
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      data-bs-toggle="modal"
+                      data-bs-target="#updateAccount"
+                      id="getEditAccount"
+                    >
+                      Edit Account <i class="bi bi-person-lines-fill"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#profileModal"
+                >
+                  Cancel
+                </button>
+                <button type="submit" id="u-profUser" class="btn btn-success">
+                  Save
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Logout -->
+      <div
+        class="modal fade"
+        id="logoutModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header d-flex justify-content-center">
+              <h1 class="modal-title fs-4 fw-bold" id="exampleModalLabel">
+                Information
+              </h1>
+            </div>
+            <div class="modal-body">
+              <p class="fs-5">Are you sure you want to logout?</p>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Cancel
+              </button>
+
+              <form class="d-flex" th:action="@{/logout}" th:method="POST">
+                <button class="btn btn-outline-danger" type="submit">
+                  Yes, Logout!
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

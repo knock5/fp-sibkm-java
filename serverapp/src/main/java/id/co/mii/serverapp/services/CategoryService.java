@@ -51,4 +51,9 @@ public class CategoryService {
     categoryRepository.delete(category);
     return category;
   }
+
+  // search category name
+  public List<Category> search(String name) {
+    return categoryRepository.searchCategoryByName(name);
+  }
 }

@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface StatusRepository extends JpaRepository<Status, Integer> {
-  Status findByName(String name);
+  public Status findByName(String name);
 }
