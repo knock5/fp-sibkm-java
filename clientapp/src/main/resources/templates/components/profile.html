@@ -31,7 +31,7 @@
                 <form>
                   <div class="form-group row">
                     <label for="disableInput" class="col-sm-2 col-form-label"
-                      >ID :</label
+                      >ID</label
                     >
                     <div class="col-sm-10">
                       <input
@@ -39,6 +39,7 @@
                         class="form-control"
                         id="userId"
                         placeholder=""
+                        disabled
                       />
                     </div>
                   </div>
@@ -53,13 +54,14 @@
                         class="form-control"
                         id="userNik"
                         placeholder=""
+                        disabled
                       />
                     </div>
                   </div>
 
                   <div class="form-group row">
                     <label for="disableInput" class="col-sm-2 col-form-label"
-                      >Name</label
+                      >Nama</label
                     >
                     <div class="col-sm-10">
                       <input
@@ -67,6 +69,7 @@
                         class="form-control"
                         id="userName"
                         placeholder=""
+                        disabled
                       />
                     </div>
                   </div>
@@ -81,13 +84,14 @@
                         class="form-control"
                         id="userEmail"
                         placeholder=""
+                        disabled
                       />
                     </div>
                   </div>
 
                   <div class="form-group row">
                     <label for="disableInput" class="col-sm-2 col-form-label"
-                      >Address</label
+                      >Alamat</label
                     >
                     <div class="col-sm-10">
                       <input
@@ -95,13 +99,14 @@
                         class="form-control"
                         id="userAddress"
                         placeholder=""
+                        disabled
                       />
                     </div>
                   </div>
 
                   <div class="form-group row">
                     <label for="disableInput" class="col-sm-2 col-form-label"
-                      >Phone</label
+                      >Telepon</label
                     >
                     <div class="col-sm-10">
                       <input
@@ -109,13 +114,14 @@
                         class="form-control"
                         id="userPhone"
                         placeholder=""
+                        disabled
                       />
                     </div>
                   </div>
 
                   <div class="form-group row">
                     <label for="disableInput" class="col-sm-2 col-form-label"
-                      >Job</label
+                      >Pekerjaan</label
                     >
                     <div class="col-sm-10">
                       <input
@@ -123,6 +129,7 @@
                         class="form-control"
                         id="userJob"
                         placeholder=""
+                        disabled
                       />
                     </div>
                   </div>
@@ -137,42 +144,31 @@
                         class="form-control"
                         id="userUsername"
                         placeholder=""
+                        disabled
                       />
                     </div>
                   </div>
                 </form>
-
-                <div class="d-flex justify-content-between my-3">
+              </div>
+              <div class="modal-footer">
+                <div class="d-flex gap-2 border">
                   <button
                     type="button"
-                    class="btn btn-primary"
+                    class="btn btn-outline-secondary"
                     data-bs-dismiss="modal"
+                  >
+                    Close <i class="bi bi-x"></i>
+                  </button>
+                  <button
+                    class="btn btn-warning"
                     data-bs-toggle="modal"
                     data-bs-target="#updateProfile"
                     id="getEditProfile"
-                  >
-                    Edit Profile <i class="bi bi-person-vcard"></i>
-                  </button>
-
-                  <button
                     type="button"
-                    class="btn btn-primary"
-                    data-bs-toggle="modal"
-                    data-bs-target="#updateAccount"
-                    id="getEditAccount"
                   >
-                    Edit Account <i class="bi bi-person-lines-fill"></i>
+                    Edit Profil <i class="bi bi-pencil-square"></i>
                   </button>
                 </div>
-              </div>
-              <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  data-bs-dismiss="modal"
-                >
-                  Close <i class="bi bi-x"></i>
-                </button>
               </div>
             </div>
           </div>
@@ -199,17 +195,14 @@
                 <div class="my-3">
                   <form>
                     <div class="form-group row">
-                      <label for="disableInput" class="col-sm-2 col-form-label"
-                        >ID :</label
-                      >
-                      <div class="col-sm-10">
-                        <input
-                          type="email"
-                          class="form-control"
-                          id="u-userId"
-                          placeholder=""
-                        />
-                      </div>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="u-userId"
+                        placeholder=""
+                        required
+                        hidden
+                      />
                     </div>
 
                     <div class="form-group row">
@@ -221,14 +214,15 @@
                           type="text"
                           class="form-control"
                           id="u-userNik"
-                          placeholder=""
+                          disabled
+                          required
                         />
                       </div>
                     </div>
 
                     <div class="form-group row">
                       <label for="disableInput" class="col-sm-2 col-form-label"
-                        >Name</label
+                        >Nama</label
                       >
                       <div class="col-sm-10">
                         <input
@@ -236,6 +230,7 @@
                           class="form-control"
                           id="u-userName"
                           placeholder=""
+                          required
                         />
                       </div>
                     </div>
@@ -250,13 +245,14 @@
                           class="form-control"
                           id="u-userEmail"
                           placeholder=""
+                          required
                         />
                       </div>
                     </div>
 
                     <div class="form-group row">
                       <label for="disableInput" class="col-sm-2 col-form-label"
-                        >Address</label
+                        >Alamat</label
                       >
                       <div class="col-sm-10">
                         <input
@@ -264,13 +260,14 @@
                           class="form-control"
                           id="u-userAddress"
                           placeholder=""
+                          required
                         />
                       </div>
                     </div>
 
                     <div class="form-group row">
                       <label for="disableInput" class="col-sm-2 col-form-label"
-                        >Phone</label
+                        >Telepon</label
                       >
                       <div class="col-sm-10">
                         <input
@@ -278,13 +275,14 @@
                           class="form-control"
                           id="u-userPhone"
                           placeholder=""
+                          required
                         />
                       </div>
                     </div>
 
                     <div class="form-group row">
                       <label for="disableInput" class="col-sm-2 col-form-label"
-                        >Job</label
+                        >Pekerjaan</label
                       >
                       <div class="col-sm-10">
                         <input
@@ -292,59 +290,24 @@
                           class="form-control"
                           id="u-userJob"
                           placeholder=""
-                        />
-                      </div>
-                    </div>
-
-                    <div class="form-group row">
-                      <label for="disableInput" class="col-sm-2 col-form-label"
-                        >Username</label
-                      >
-                      <div class="col-sm-10">
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="u-userUsername"
-                          placeholder=""
+                          required
                         />
                       </div>
                     </div>
                   </form>
-
-                  <div class="d-flex justify-content-between my-3">
-                    <button
-                      type="button"
-                      class="btn btn-primary"
-                      data-bs-toggle="modal"
-                      data-bs-target="#updateProfile"
-                      id="getProfileProfile"
-                    >
-                      Edit Profile <i class="bi bi-person-vcard"></i>
-                    </button>
-
-                    <button
-                      type="button"
-                      class="btn btn-primary"
-                      data-bs-toggle="modal"
-                      data-bs-target="#updateAccount"
-                      id="getEditAccount"
-                    >
-                      Edit Account <i class="bi bi-person-lines-fill"></i>
-                    </button>
-                  </div>
                 </div>
               </div>
               <div class="modal-footer">
                 <button
                   type="button"
-                  class="btn btn-secondary"
+                  class="btn btn-outline-warning"
                   data-bs-toggle="modal"
                   data-bs-target="#profileModal"
                 >
                   Cancel
                 </button>
                 <button type="submit" id="u-profUser" class="btn btn-success">
-                  Save
+                  Simpan
                 </button>
               </div>
             </form>
