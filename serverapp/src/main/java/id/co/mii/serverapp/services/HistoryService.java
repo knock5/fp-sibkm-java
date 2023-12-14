@@ -4,6 +4,7 @@ import id.co.mii.serverapp.models.History;
 import id.co.mii.serverapp.models.dto.request.HistoryRequest;
 import id.co.mii.serverapp.repositories.ComplaintRepository;
 import id.co.mii.serverapp.repositories.HistoryRepository;
+import id.co.mii.serverapp.repositories.PeopleRepository;
 import id.co.mii.serverapp.repositories.StatusRepository;
 import java.util.List;
 import lombok.AllArgsConstructor;
@@ -17,8 +18,8 @@ import org.springframework.web.server.ResponseStatusException;
 public class HistoryService {
 
   private HistoryRepository historyRepository;
-  private ComplaintRepository complaintService;
-  private StatusRepository statusService;
+  private StatusRepository statusRepository;
+  private ComplaintRepository complaintRepository;
   private ModelMapper modelMapper;
 
   public List<History> getAll() {
@@ -30,7 +31,7 @@ public class HistoryService {
 
     // set history complaint id
     history.setComplaint(
-      complaintService
+      complaintRepository
         .findById(historyRequest.getComplaintId())
         .orElseThrow(() ->
           new ResponseStatusException(
@@ -42,7 +43,7 @@ public class HistoryService {
 
     // set history status id
     history.setStatus(
-      statusService
+      statusRepository
         .findById(historyRequest.getStatusId())
         .orElseThrow(() ->
           new ResponseStatusException(HttpStatus.NOT_FOUND, "Status not found")
@@ -70,5 +71,22 @@ public class HistoryService {
     History history = getById(id);
     historyRepository.delete(history);
     return history;
+  }
+
+  // get history by people id
+  public List<History> getHistoryByPeopleId(Integer id) {
+    if (id == null) {
+      throw new ResponseStatusException(
+        HttpStatus.BAD_REQUEST,
+        "People Id harus diisi"
+      );
+    }
+
+    // handle if response empty
+    if (historyRepository.findByComplaintPeopleId(id).isEmpty()) {
+      throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Data Kosong");
+    }
+
+    return historyRepository.findByComplaintPeopleId(id);
   }
 }

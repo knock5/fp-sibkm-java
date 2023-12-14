@@ -168,15 +168,15 @@ let detailPeople = (id) => {
     url: `${urlPeople}/${id}`,
     method: "GET",
     success: (data) => {
-      $("#userId").text(data.id);
-      $("#userNik").text(data.nik);
-      $("#userName").text(data.name);
-      $("#userEmail").text(data.email);
-      $("#userPhone").text(data.phone);
-      $("#userJob").text(data.job);
-      $("#userAddress").text(data.address);
-      $("#usernameAcc").text(data.user.username);
-      $("#userRole").text(data.user.roles[0].name);
+      $("#userIdDetail").text(data.id);
+      $("#userNikDetail").text(data.nik);
+      $("#userNameDetail").text(data.name);
+      $("#userEmailDetail").text(data.email);
+      $("#userPhoneDetail").text(data.phone);
+      $("#userJobDetail").text(data.job);
+      $("#userAddressDetail").text(data.address);
+      $("#usernameAccDetail").text(data.user.username);
+      $("#userRoleDetail").text(data.user.roles[0].name);
     },
     error: () => {
       Swal.fire({

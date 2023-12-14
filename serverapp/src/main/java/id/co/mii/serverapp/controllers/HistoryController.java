@@ -52,4 +52,10 @@ public class HistoryController {
   public History delete(@PathVariable Integer id) {
     return historyService.delete(id);
   }
+
+  // get history by people id
+  @GetMapping("/user/{id}")
+  public List<History> findByComplaintPeopleId(@PathVariable Integer id) {
+    return historyService.getHistoryByPeopleId(id);
+  }
 }

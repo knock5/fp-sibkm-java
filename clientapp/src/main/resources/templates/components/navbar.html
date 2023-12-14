@@ -40,7 +40,8 @@
                 class="nav-link"
                 th:classappend="${isActive == 'a-dashboard' ? 'active' : ''}"
                 th:href="@{/a-dashboard}"
-                >Dashboard(Admin)</a
+                sec:authorize="hasRole('ADMIN')"
+                >Dashboard</a
               >
             </li>
             <li class="nav-item">
@@ -48,7 +49,8 @@
                 class="nav-link"
                 th:classappend="${isActive == 'u-dashboard' ? 'active' : ''}"
                 th:href="@{/u-dashboard}"
-                >Dashboard(User)</a
+                sec:authorize="hasRole('USER')"
+                >Dashboard</a
               >
             </li>
             <li class="nav-item">
@@ -56,7 +58,8 @@
                 class="nav-link"
                 th:classappend="${isActive == 'o-dashboard' ? 'active' : ''}"
                 th:href="@{/o-dashboard}"
-                >Dashboard(Officer)</a
+                sec:authorize="hasRole('OFFICER')"
+                >Dashboard</a
               >
             </li>
             <li class="nav-item">
