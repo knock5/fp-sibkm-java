@@ -15,49 +15,50 @@
       crossorigin="anonymous"
     />
 
+    <link rel="shortcut icon" th:href="@{/img/logo.jpg}" type="image/x-icon" />
+
     <title th:text="${title}"></title>
   </head>
   <body>
     <main>
       <div class="header">
-        <!-- alert invalid input -->
-        <div
-          th:if="${param.error}"
-          class="d-flex justify-content-center align-items-center mt-4"
-        >
+        <div class="wrap-regis pt-5">
+          <!-- alert invalid input -->
           <div
-            class="alert alert-danger alert-dismissible fade show"
-            role="alert"
+            th:if="${param.error}"
+            class="d-flex justify-content-center align-items-center mt-4"
           >
-            <strong>Invalid.</strong> Check your username and password again!
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="alert"
-              aria-label="Close"
-            ></button>
+            <div
+              class="alert alert-danger alert-dismissible fade show"
+              role="alert"
+            >
+              <strong>Invalid.</strong> Check your username and password again!
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close"
+              ></button>
+            </div>
           </div>
-        </div>
-        <!-- alert registration success -->
-        <div
-          th:if="${message}"
-          class="d-flex justify-content-center align-items-center mt-4"
-        >
+          <!-- alert registration success -->
           <div
-            class="alert alert-success alert-dismissible fade show"
-            role="alert"
+            th:if="${message}"
+            class="d-flex justify-content-center align-items-center mt-4"
           >
-            <strong>Success.</strong> <span th:text="${message}"></span>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="alert"
-              aria-label="Close"
-            ></button>
+            <div
+              class="alert alert-success alert-dismissible fade show"
+              role="alert"
+            >
+              <strong>Success.</strong> <span th:text="${message}"></span>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close"
+              ></button>
+            </div>
           </div>
-        </div>
-
-        <div class="wrap-regis">
           <form
             class="form"
             th:action="@{/login}"

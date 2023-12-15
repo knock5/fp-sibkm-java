@@ -59,6 +59,13 @@
 }
 
 /* navbar */
+.logo {
+  width: 50px;
+}
+.navbar-brand {
+  border-radius: 15px;
+  overflow: hidden;
+}
 .navbar {
   background-color: var(--black);
 }

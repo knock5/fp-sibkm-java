@@ -12,7 +12,9 @@
       th:fragment="navbar"
     >
       <div class="container-fluid">
-        <a class="navbar-brand text-white" href="#">Navbar</a>
+        <div class="navbar-brand text-white">
+          <img th:src="@{/img/logo.jpg}" alt="logo" class="logo" />
+        </div>
         <button
           class="navbar-toggler"
           type="button"
