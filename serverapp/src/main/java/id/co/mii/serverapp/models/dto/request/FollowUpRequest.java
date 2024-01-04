@@ -1,7 +1,7 @@
-package id.co.mii.serverapp.models.dto;
+package id.co.mii.serverapp.models.dto.request;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import java.sql.Date;
+import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,16 +9,13 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ComplaintRequest {
-
-  private String title;
-  private String body;
-  private String attachment;
+public class FollowUpRequest {
 
   @JsonFormat(pattern = "yyyy-MM-dd")
-  private Date date;
+  private Date followUpDate;
 
-  private Integer categoryId;
-  private Integer peopleId;
+  private String followUpNotes;
+  private Integer complaintId;
+  private Integer officerId;
   private Integer statusId;
 }

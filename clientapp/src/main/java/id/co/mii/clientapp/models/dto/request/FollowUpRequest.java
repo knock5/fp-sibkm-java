@@ -1,7 +1,7 @@
-package id.co.mii.serverapp.models.dto;
+package id.co.mii.clientapp.models.dto.request;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import java.util.Date;
+import java.sql.Date;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

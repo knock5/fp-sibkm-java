@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <meta name="_csrf" th:content="${_csrf.token}" />
+    <!-- default header name is X-CSRF-TOKEN -->
+    <meta name="_csrf_header" th:content="${_csrf.headerName}" />
+
     <!-- local CSS -->
     <link rel="stylesheet" th:href="@{/css/main.css}" />
 
@@ -27,17 +31,16 @@
     />
 
     <!-- favicon -->
-    <!-- <link
-      rel="shortcut icon"
-      th:href="@{/images/coffee-cup.png}"
-      type="image/x-icon"
-    /> -->
+    <link rel="shortcut icon" th:href="@{/img/logo.jpg}" type="image/x-icon" />
 
     <title>Main</title>
   </head>
   <body class="wrap-body">
     <!-- navbar -->
     <nav th:replace="components/navbar :: navbar"></nav>
+
+    <!-- modal profile -->
+    <div th:replace="components/profile :: profile"></div>
 
     <!-- content -->
     <section layout:fragment="content"></section>

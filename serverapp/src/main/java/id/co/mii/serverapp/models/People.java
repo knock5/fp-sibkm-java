@@ -25,7 +25,7 @@ public class People {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name = "people_id", length = 30)
+  @Column(name = "people_id")
   private Integer id;
 
   @Column(nullable = false, unique = true, length = 100)
@@ -34,16 +34,16 @@ public class People {
   @Column(nullable = false, length = 30)
   private String name;
 
-  @Column(nullable = false, length = 20)
+  @Column(nullable = false, unique = true, length = 20)
   private String email;
 
   @Column(nullable = false, length = 30)
   private String address;
 
-  @Column(nullable = false, unique = true, length = 12)
+  @Column(nullable = false, unique = true, length = 14)
   private String phone;
 
-  @Column(length = 20)
+  @Column(length = 50)
   private String job;
 
   @Column(length = 255)

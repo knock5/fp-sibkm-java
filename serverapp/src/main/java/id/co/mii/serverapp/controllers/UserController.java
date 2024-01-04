@@ -4,6 +4,7 @@ import id.co.mii.serverapp.models.User;
 import id.co.mii.serverapp.services.UserService;
 import java.util.List;
 import lombok.AllArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/user")
+@PreAuthorize("hasAnyRole('ADMIN', 'OFFICER', 'USER')")
 public class UserController {
 
   private UserService userService;
@@ -30,6 +32,12 @@ public class UserController {
     return userService.getById(id);
   }
 
+  // get user id by username
+  @GetMapping("/find-id/{username}")
+  public Integer findUserIdByUsername(@PathVariable String username) {
+    return userService.findUserIdByUsername(username);
+  }
+
   @PostMapping
   public User create(@RequestBody User user) {
     return userService.create(user);
@@ -40,6 +48,7 @@ public class UserController {
     return userService.update(id, user);
   }
 
+  @PreAuthorize("hasAnyAuthority('ROLE_SUPER_ADMIN', 'ROLE_EDITOR_OFFICER')")
   @DeleteMapping("/{id}")
   public User delete(@PathVariable Integer id) {
     return userService.delete(id);

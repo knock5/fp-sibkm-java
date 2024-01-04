@@ -18,6 +18,7 @@ public class People {
   private String phone;
   private String job;
   private String profile_picture;
+  private Role role;
   private List<Complaint> complaint;
   private User user;
 }
